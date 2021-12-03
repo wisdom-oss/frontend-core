@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: "app-root",
-  templateUrl: "./app.component.pug",
-  styleUrls: [],
+  templateUrl: "./app.component.pug"
 })
 export class AppComponent {
   title = "frontend-core";
