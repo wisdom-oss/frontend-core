@@ -82,3 +82,6 @@ ij_yaml_spaces_within_brackets = false
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+[*.pug]
+trim_trailing_whitespace = true
