@@ -13,6 +13,8 @@ specifiers:
   '@angular/platform-browser-dynamic': ~13.0.0
   '@angular/router': ~13.0.0
   '@types/node': ^12.11.1
+  bulma: 0.9.3
+  bulma-prefers-dark: ^0.1.0-beta.1
   rxjs: ~7.4.0
   tslib: ^2.3.0
   typescript: ~4.4.3
@@ -27,6 +29,8 @@ dependencies:
   '@angular/platform-browser': 13.0.3_8cf514f6c45c3f418cf88c7d069147be
   '@angular/platform-browser-dynamic': 13.0.3_07b82b655af33ea3f4726698b941cc64
   '@angular/router': 13.0.3_f9ac6451daeda43f9c41a95d3336292e
+  bulma: 0.9.3
+  bulma-prefers-dark: 0.1.0-beta.1
   rxjs: 7.4.0
   tslib: 2.3.1
   zone.js: 0.11.4
@@ -2244,6 +2248,14 @@ packages:
   /builtins/1.0.3:
     resolution: {integrity: sha1-y5T662HIaWRR2zZTThQi+U8K7og=}
     dev: true
+
+  /bulma-prefers-dark/0.1.0-beta.1:
+    resolution: {integrity: sha512-ti4sKxIIrTAvGtsYc9Rk66SUZSH/j63EU1hApQijQVlKFF0qBLGSb8E16HhI83KJaIeYP4aAHQv2tj0ara831A==}
+    dev: false
+
+  /bulma/0.9.3:
+    resolution: {integrity: sha512-0d7GNW1PY4ud8TWxdNcP6Cc8Bu7MxcntD/RRLGWuiw/s0a9P+XlH/6QoOIrmbj6o8WWJzJYhytiu9nFjTszk1g==}
+    dev: false
 
   /bytes/3.0.0:
     resolution: {integrity: sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=}
