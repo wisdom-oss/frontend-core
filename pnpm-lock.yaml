@@ -17,7 +17,7 @@ specifiers:
   apply-loader: ^2.0.0
   bulma: 0.9.3
   bulma-prefers-dark: ^0.1.0-beta.1
-  ionicons: ^6.0.0
+  ionicons: <6.0.0
   pug: ^3.0.2
   pug-loader: ^2.4.0
   rxjs: ~7.4.0
@@ -36,6 +36,7 @@ dependencies:
   '@angular/router': 13.0.3_f9ac6451daeda43f9c41a95d3336292e
   bulma: 0.9.3
   bulma-prefers-dark: 0.1.0-beta.1
+  ionicons: 5.5.4
   rxjs: 7.4.0
   tslib: 2.3.1
   zone.js: 0.11.4
@@ -3857,8 +3858,8 @@ packages:
       p-event: 4.2.0
     dev: true
 
-  /ionicons/6.0.0:
-    resolution: {integrity: sha512-p83W1T8jZUlllHAjuIWaDQbI36OYqdrwcf8MhYbKW7+9rjGlCMP9+5OaR0W7tl0QfM004uAiy/zkc7HTpDNKgA==}
+  /ionicons/5.5.4:
+    resolution: {integrity: sha512-3ph8X9my3inhabWEZ7N0XRA0MnnNQ1v9a602mLNgWsIXnxE9G5BybIZ/pws/OZZ/hoNlvSjk801N03yL9/FNgQ==}
     dependencies:
       '@stencil/core': 2.10.0
     dev: false
