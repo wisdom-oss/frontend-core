@@ -8,9 +8,8 @@ import PostRevoke200 from "./response_types/login/PostRevoke200";
 import PostRevoke403 from "./response_types/login/PostRevoke403";
 import {join} from "path-browserify";
 
-// FIXME: this url is incorrect and the base needs to be moved
 /** Url for the interaction. */
-const AUTH_API = "localhost:8090/auth/";
+const AUTH_API = "api/auth";
 
 /**
  * Options for the post request in the service.
