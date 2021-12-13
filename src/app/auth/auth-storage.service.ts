@@ -3,6 +3,8 @@ import {AuthService} from "./auth.service";
 
 /** Key for the access token. */
 const ACCESS_TOKEN_KEY = "auth-token";
+/** Key fo the expiration date. */
+const EXPIRES_IN_KEY = "auth-expires-in";
 /** Key for the refresh token. */
 const REFRESH_TOKEN_KEY = "auth-refresh-token";
 /** Key for the scopes. */
@@ -39,6 +41,15 @@ export class AuthStorageService {
   }
   get accessToken() {
     return AuthStorageService.getStorage(ACCESS_TOKEN_KEY);
+  }
+
+  set expiresIn(unixTime: number | string | null) {
+    AuthStorageService.setStorage(`${unixTime}`, EXPIRES_IN_KEY);
+  }
+  get expiresIn(): number {
+    let expiresIn = AuthStorageService.getStorage(EXPIRES_IN_KEY);
+    if (expiresIn) return parseInt(expiresIn);
+    return NaN;
   }
 
   set refreshToken(token: string | null) {
