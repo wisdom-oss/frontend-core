@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonIconComponent } from './ion-icon/ion-icon.component';
 import { LoginComponent } from './auth/login/login.component';
+import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {AuthInterceptor} from "./auth/auth.interceptor";
@@ -17,7 +18,8 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [

@@ -6,11 +6,11 @@ section.hero.is-fullheight
         .column.is-narrow.box
           .container.p-3
             p.title.has-text-centered WISdoM OSS
-            form
+            form(#f="ngForm" "(ngSubmit)"="onSubmit(f)" noValidate)
               .field
                 label.label Nutzername
                 .control.has-icons-left.has-icons-right
-                  input.input.is-success(type="text" placeholder="Nutzername")
+                  input.input.is-success(type="text" name="username" placeholder="Nutzername" required ngModel)
                   span.icon.is-left
                     ion-icon(name="id-card")
                   span.icon.is-right
@@ -18,7 +18,7 @@ section.hero.is-fullheight
               .field
                 label.label Passwort
                 .control.has-icons-left.has-icons-right
-                  input.input.is-danger(type="password" placeholder="Passwort")
+                  input.input.is-danger(type="password" name="password" placeholder="Passwort" required ngModel)
                   span.icon.is-left
                     ion-icon(name="key")
                   span.icon.is-right
