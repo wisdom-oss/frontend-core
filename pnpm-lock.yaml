@@ -14,10 +14,12 @@ specifiers:
   '@angular/platform-browser-dynamic': ~13.1.0
   '@angular/router': ~13.1.0
   '@types/node': ^16.11.12
+  '@types/path-browserify': ^1.0.0
   apply-loader: ^2.0.0
   bulma: 0.9.3
   bulma-prefers-dark: ^0.1.0-beta.1
   ionicons: <6.0.0
+  path-browserify: ^1.0.1
   pug: ^3.0.2
   pug-loader: ^2.4.0
   rxjs: ~7.4.0
@@ -37,6 +39,7 @@ dependencies:
   bulma: 0.9.3
   bulma-prefers-dark: 0.1.0-beta.1
   ionicons: 5.5.4
+  path-browserify: 1.0.1
   rxjs: 7.4.0
   tslib: 2.3.1
   zone.js: 0.11.4
@@ -47,6 +50,7 @@ devDependencies:
   '@angular/cli': 13.1.1
   '@angular/compiler-cli': 13.1.0_ff37069e3e419d7ea1a2bd9ceb3e2dab
   '@types/node': 16.11.12
+  '@types/path-browserify': 1.0.0
   apply-loader: 2.0.0
   pug: 3.0.2
   pug-loader: 2.4.0_pug@3.0.2
@@ -1777,6 +1781,10 @@ packages:
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
+    dev: true
+
+  /@types/path-browserify/1.0.0:
+    resolution: {integrity: sha512-XMCcyhSvxcch8b7rZAtFAaierBYdeHXVvg2iYnxOV0MCQHmPuRRmGZPFDRzPayxcGiiSL1Te9UIO+f3cuj0tfw==}
     dev: true
 
   /@types/retry/0.12.1:
@@ -4827,6 +4835,10 @@ packages:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
     dev: true
+
+  /path-browserify/1.0.1:
+    resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
+    dev: false
 
   /path-exists/4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}

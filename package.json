@@ -20,6 +20,7 @@
     "bulma": "0.9.3",
     "bulma-prefers-dark": "^0.1.0-beta.1",
     "ionicons": "<6.0.0",
+    "path-browserify": "^1.0.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
@@ -29,6 +30,7 @@
     "@angular-devkit/build-angular": "~13.1.1",
     "@angular/cli": "~13.1.1",
     "@angular/compiler-cli": "~13.1.0",
+    "@types/path-browserify": "^1.0.0",
     "@types/node": "^16.11.12",
     "apply-loader": "^2.0.0",
     "pug": "^3.0.2",
