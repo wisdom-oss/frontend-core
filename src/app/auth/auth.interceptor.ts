@@ -12,10 +12,7 @@ import {AuthStorageService} from "./auth-storage.service";
 const TOKEN_HEADER_KEY = "Authorization";
 
 /** Interceptor to inject the authorization token into every request. */
-@Injectable(/*
-  // The interceptor should be available everywhere
-  providedIn: 'root'
-}*/)
+@Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private authStorage: AuthStorageService) {}
@@ -25,7 +22,10 @@ export class AuthInterceptor implements HttpInterceptor {
    * @param request The request the token should be injected in
    * @param next The next handler to operate on the request
    */
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     let authRequest = request;
     const token = this.authStorage.accessToken;
     if (token) {
