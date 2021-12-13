@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpParams,
+  HttpResponse
+} from "@angular/common/http";
 import {Observable} from "rxjs";
 import PostOAuthToken200 from "./response_types/login/PostOAuthToken200";
 import PostOAuthToken400 from "./response_types/login/PostOAuthToken400";
@@ -17,11 +22,12 @@ const AUTH_API = "api/auth";
  * of "json".
  * The response is a json though.
  */
-const httpOptions: Parameters<HttpClient["post"]>[2] = {
+const httpOptions: any = {
   headers: new HttpHeaders({
     "Content-Type": "application/x-www-form-urlencoded"
   }),
-  responseType: "json"
+  responseType: "json",
+  observe: "response"
 }
 
 /**
@@ -40,11 +46,18 @@ export class AuthService {
    * @param password Password of the user
    */
   login(username: string, password: string) {
-    return this.http.post(join(AUTH_API, "oauth/token"), {
-      grant_type: "password",
-      username,
-      password
-    }, httpOptions) as Observable<
+    return this.http.post(
+      join(AUTH_API, "oauth/token"),
+      new HttpParams({
+        fromObject: {
+          grant_type: "password",
+          username,
+          password
+        }
+      }),
+      // TS struggles with too many overload, hence this casting is needed to
+      // unknown
+      httpOptions) as unknown as Observable<
       {status: 200} & HttpResponse<PostOAuthToken200> |
       {status: 400} & HttpResponse<PostOAuthToken400> |
       {status: 401} & HttpResponse<PostOAuthToken401>
@@ -56,21 +69,34 @@ export class AuthService {
    * @param token Refresh token
    */
   refresh(token: string) {
-    return this.http.post(join(AUTH_API, "oauth/token"), {
-      grant_type: "refresh_token",
-      refresh_token: token
-    }, httpOptions) as ReturnType<AuthService["login"]>;
+    return this.http.post(
+      join(AUTH_API, "oauth/token"),
+      new HttpParams({
+        fromObject: {
+          grant_type: "refresh_token",
+          refresh_token: token
+        }
+      }),
+      httpOptions
+      // TS struggles with too many overload, hence this casting is needed to
+      // unknown
+    ) as unknown as ReturnType<AuthService["login"]>;
   }
-
 
   /**
    * Revokes the token.
    * @param token Token of the user
    */
   logout(token: string) {
-    return this.http.post(join(AUTH_API, "oauth/token"), {
-      token
-    }, httpOptions) as Observable<{status: 200} & HttpResponse<PostRevoke200> |
+    return this.http.post(
+      join(AUTH_API, "oauth/revoke"),
+      new HttpParams({fromObject: {
+        token
+      }}),
+      httpOptions
+      // TS struggles with too many overload, hence this casting is needed to
+      // unknown
+    ) as unknown as Observable<{status: 200} & HttpResponse<PostRevoke200> |
       {status: 403} & HttpResponse<PostRevoke403>>
   }
 
