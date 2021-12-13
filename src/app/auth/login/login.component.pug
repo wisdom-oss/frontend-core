@@ -1,0 +1,31 @@
+section.hero.is-fullheight
+  .hero-body
+    .container
+      .columns
+        .column
+        .column.is-narrow.box
+          .container.p-3
+            p.title.has-text-centered WISdoM OSS
+            form
+              .field
+                label.label Nutzername
+                .control.has-icons-left.has-icons-right
+                  input.input.is-success(type="text" placeholder="Nutzername")
+                  span.icon.is-left
+                    ion-icon(name="id-card")
+                  span.icon.is-right
+                    ion-icon(name="checkmark")
+              .field
+                label.label Passwort
+                .control.has-icons-left.has-icons-right
+                  input.input.is-danger(type="password" placeholder="Passwort")
+                  span.icon.is-left
+                    ion-icon(name="key")
+                  span.icon.is-right
+                    ion-icon(name="warning")
+              .content
+                a Passwort vergessen?
+              .field
+                p.control
+                  button.button.is-success.is-fullwidth(type="submit") Login
+        .column
