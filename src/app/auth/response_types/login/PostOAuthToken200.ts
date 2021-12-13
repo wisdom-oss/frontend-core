@@ -8,7 +8,7 @@ type PostOAuthToken200 = {
    * The type of the token issued as described in [RFC6749] Section 7.1.
    * The Value is case-insensitive.
    */
-  token_type: "Bearer" | "MAC";
+  token_type: "bearer" | "mac";
 
   /**
    * RECOMMENDED The lifetime in seconds of the access token.
