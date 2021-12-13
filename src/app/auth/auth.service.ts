@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {join} from "@angular/compiler-cli";
 import PostOAuthToken200 from "./response_types/login/PostOAuthToken200";
 import PostOAuthToken400 from "./response_types/login/PostOAuthToken400";
 import PostOAuthToken401 from "./response_types/login/PostOAuthToken401";
 import PostRevoke200 from "./response_types/login/PostRevoke200";
 import PostRevoke403 from "./response_types/login/PostRevoke403";
+import {join} from "path-browserify";
 
 // FIXME: this url is incorrect and the base needs to be moved
 /** Url for the interaction. */
