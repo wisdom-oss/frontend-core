@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonIconComponent } from './ion-icon/ion-icon.component';
 import { LoginComponent } from './auth/login/login.component';
+import {BaseUrlInterceptor} from "./base-url.interceptor";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,13 @@ import { LoginComponent } from './auth/login/login.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseUrlInterceptor,
+      multi: true
+    },
+    }],
   bootstrap: [LoginComponent]
 })
 export class AppModule { }
