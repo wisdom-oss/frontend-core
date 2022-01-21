@@ -28,7 +28,7 @@ export class AuthStorageService {
   }
 
   /** Internal function to set session storage values. */
-  private static setStorage(data: string | null, key: string) {
+  private static setStorage(data: string | null | undefined, key: string) {
     if (data) globalThis.sessionStorage.setItem(key, data);
     else globalThis.sessionStorage.removeItem(key);
   }
@@ -37,14 +37,14 @@ export class AuthStorageService {
     return globalThis.sessionStorage.getItem(key);
   }
 
-  set accessToken(token: string | null) {
+  set accessToken(token: string | null | undefined) {
     AuthStorageService.setStorage(token, ACCESS_TOKEN_KEY);
   }
   get accessToken() {
     return AuthStorageService.getStorage(ACCESS_TOKEN_KEY);
   }
 
-  set expiresIn(unixTime: number | string | null) {
+  set expiresIn(unixTime: number | string | null | undefined) {
     AuthStorageService.setStorage(`${unixTime}`, EXPIRES_IN_KEY);
   }
   get expiresIn(): number {
@@ -53,14 +53,14 @@ export class AuthStorageService {
     return NaN;
   }
 
-  set refreshToken(token: string | null) {
+  set refreshToken(token: string | null | undefined) {
     AuthStorageService.setStorage(token, REFRESH_TOKEN_KEY);
   }
   get refreshToken() {
     return AuthStorageService.getStorage(REFRESH_TOKEN_KEY);
   }
 
-  set scopes(scopes: string | null) {
+  set scopes(scopes: string | null | undefined) {
     AuthStorageService.setStorage(scopes, SCOPES_KEY);
   }
   get scopes() {
