@@ -1,0 +1,62 @@
+nav.navbar.is-primary
+  .navbar-brand
+    a.navbar-item
+      span.icon-text.title
+        span.icon
+          ion-icon(name="rainy")
+        span WISdoM-OSS
+  .navbar-menu
+    .navbar-start
+      .navbar-item
+        .button
+          span.icon
+            ion-icon(name="menu")
+    .navbar-end
+      .navbar-item
+        .buttons
+          .button
+            span.icon
+              ion-icon(name="earth")
+          .button
+            span.icon
+              ion-icon(name="person-circle")
+.columns(style="height: 100vh")
+  aside.column.is-2.box.p-5
+    p.menu-label ein Menü
+    ul.menu-list
+      li
+        a Dashboard
+      li
+        a ein Link
+  main.column
+    .content
+      p Hier packen wir was cooles rein
+  aside.column.is-2.box.p-5
+    p.menu-label Konto
+    ul.menu-list
+      li
+        a
+          span.icon-text
+            span.icon
+              ion-icon(name="log-out")
+            span Logout
+    p.menu-label Administration
+    ul.menu-list
+      li
+        a
+          span.icon-text
+            span.icon
+              ion-icon(name="person")
+            span Nutzerverwaltung
+      li
+        a
+          span.icon-text
+            span.icon
+              ion-icon(name="key")
+            span Berechtigungen
+      li
+        a
+          span.icon-text
+            span.icon
+              ion-icon(name="id-card")
+            span Rollen
