@@ -14,7 +14,7 @@ type PostOAuthToken401 = {
    *   </li>
    * </ul>
    */
-  error: "invalid_client";
+  error?: "invalid_client";
 }
 
 export default PostOAuthToken401;

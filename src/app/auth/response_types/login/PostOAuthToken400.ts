@@ -38,10 +38,10 @@ type PostOAuthToken400 = {
     "invalid_scope";
 
   /** Additional information on the error. */
-  error_description: string;
+  error_description?: string;
 
   /** URI pointing to the documentation if it is available. */
-  error_uri: string;
+  error_uri?: string;
 }
 
 export default PostOAuthToken400;
