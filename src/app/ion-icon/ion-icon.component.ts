@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input} from "@angular/core";
 
 /**
  * This component is used to inject the icons from IonIcons.

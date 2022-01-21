@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {join} from "@angular/compiler-cli";
+import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
+
 import GetUsers200 from "./response_types/users/GetUsers200";
 import PutUsers201 from "./response_types/users/PutUsers201";
 import PutUsers409 from "./response_types/users/PutUsers409";

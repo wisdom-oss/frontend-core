@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { IonIconComponent } from './ion-icon/ion-icon.component';
-import { LoginComponent } from './auth/login/login.component';
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {BaseUrlInterceptor} from "./base-url.interceptor";
+import {BrowserModule} from "@angular/platform-browser";
+
+import {AppRoutingModule} from "./app-routing.module";
+import {AppComponent} from "./app.component";
+import {LoginComponent} from "./auth/login/login.component";
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import {IonIconComponent} from "./ion-icon/ion-icon.component";
+import {BaseUrlInterceptor} from "./base-url.interceptor";
 
 @NgModule({
   declarations: [

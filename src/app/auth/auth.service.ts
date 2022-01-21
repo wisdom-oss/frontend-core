@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpHeaders,
   HttpParams,
   HttpResponse
 } from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {join} from "path-browserify";
 import {Observable} from "rxjs";
+
 import PostOAuthToken200 from "./response_types/login/PostOAuthToken200";
 import PostOAuthToken400 from "./response_types/login/PostOAuthToken400";
 import PostOAuthToken401 from "./response_types/login/PostOAuthToken401";
 import PostRevoke200 from "./response_types/login/PostRevoke200";
 import PostRevoke403 from "./response_types/login/PostRevoke403";
-import {join} from "path-browserify";
 
 /** Url for the interaction. */
 const AUTH_API = "api/auth";
