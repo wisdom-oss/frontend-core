@@ -1,8 +1,11 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
 import {NgForm} from "@angular/forms";
 
 import {AuthService} from "../auth.service";
 import {AuthStorageService} from "../auth-storage.service";
+import PostOAuthToken400 from "../response_types/login/PostOAuthToken400";
+import PostOAuthToken401 from "../response_types/login/PostOAuthToken401";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,9 +13,15 @@ import {AuthStorageService} from "../auth-storage.service";
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild("passwordInput")
+  passwordInput!: ElementRef<HTMLInputElement>;
+
+  loginHasIssue: false | string = false;
+
   constructor(
     private authService: AuthService,
-    private authStorage: AuthStorageService
+    private authStorage: AuthStorageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {}
@@ -20,14 +29,30 @@ export class LoginComponent implements OnInit {
   onSubmit(f: NgForm): void {
     const valid = f.valid;
     const {username, password} = f.value;
-    this.authService.login(username, password).subscribe(response => {
-      console.log(response);
-      switch (response.status) {
-        case 200:
-          this.authStorage.accessToken = response.body?.access_token ?? null;
-          this.authStorage.refreshToken = response.body?.refresh_token ?? null;
-          this.authStorage.scopes = response.body?.scope ?? null;
-          this.authStorage.expiresIn = response.body?.expires_in ?? null;
+    this.authService.login(username, password).subscribe({
+      next: response => {
+        this.authStorage.accessToken = response.access_token;
+        this.authStorage.refreshToken = response.refresh_token;
+        this.authStorage.scopes = response.scope;
+        this.authStorage.expiresIn = response.expires_in;
+        console.log("successfully logged in");
+        this.router.navigate([]).catch(e => console.error(e));
+      },
+      error: errResponse => {
+        let error;
+        switch (errResponse.status) {
+          case 400:
+            error = errResponse.error as PostOAuthToken400;
+            console.error(error);
+            this.loginHasIssue = "Kombination is nicht korrekt.";
+            this.passwordInput?.nativeElement.select();
+            break;
+          case 401:
+            error = errResponse.error as PostOAuthToken401;
+            console.error(error);
+          default:
+            throw errResponse;
+        }
       }
     });
   }
