@@ -1,6 +1,6 @@
 import {
   HttpClient,
-  HttpContext,
+  HttpContext, HttpErrorResponse,
   HttpHeaders,
   HttpParams,
   HttpResponse
@@ -25,7 +25,7 @@ const AUTH_URL = "auth";
  * of "json".
  * The response is a json though.
  */
-const httpOptions: any = {
+const httpOptions: Parameters<HttpClient["post"]>[2] = {
   headers: new HttpHeaders({
     "Content-Type": "application/x-www-form-urlencoded"
   }),
@@ -58,13 +58,8 @@ export class AuthService {
           password
         }
       }),
-      // TS struggles with too many overload, hence this casting is needed to
-      // unknown
-      httpOptions) as unknown as Observable<
-      {status: 200} & HttpResponse<PostOAuthToken200> |
-      {status: 400} & HttpResponse<PostOAuthToken400> |
-      {status: 401} & HttpResponse<PostOAuthToken401>
-    >;
+      httpOptions
+    ) as Observable<PostOAuthToken200>;
   }
 
   /**
@@ -81,9 +76,7 @@ export class AuthService {
         }
       }),
       httpOptions
-      // TS struggles with too many overload, hence this casting is needed to
-      // unknown
-    ) as unknown as ReturnType<AuthService["login"]>;
+    ) as Observable<PostOAuthToken200>;
   }
 
   /**
@@ -97,10 +90,7 @@ export class AuthService {
         token
       }}),
       httpOptions
-      // TS struggles with too many overload, hence this casting is needed to
-      // unknown
-    ) as unknown as Observable<{status: 200} & HttpResponse<PostRevoke200> |
-      {status: 403} & HttpResponse<PostRevoke403>>
+    ) as Observable<PostRevoke200>;
   }
 
 }
