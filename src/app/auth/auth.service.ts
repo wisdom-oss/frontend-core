@@ -1,8 +1,9 @@
 import {
   HttpClient,
-  HttpContext, HttpErrorResponse,
+  HttpContext,
   HttpHeaders,
   HttpParams,
+  HttpErrorResponse,
   HttpResponse
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
@@ -60,6 +61,18 @@ export class AuthService {
       }),
       httpOptions
     ) as Observable<PostOAuthToken200>;
+  }
+
+  /**
+   * Checks if the given token is valid.
+   * @param token Token to check
+   */
+  validate(token: string) {
+    return this.http.post(
+      join(AUTH_URL, "oauth/check_token"),
+      new HttpParams({fromObject: {token}}),
+      httpOptions
+    );
   }
 
   /**
