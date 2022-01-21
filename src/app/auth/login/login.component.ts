@@ -1,11 +1,11 @@
-import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
+import {ViewChild, Component, OnInit, ElementRef} from "@angular/core";
 import {NgForm} from "@angular/forms";
+import {Router} from "@angular/router";
 
 import {AuthService} from "../auth.service";
 import {AuthStorageService} from "../auth-storage.service";
 import PostOAuthToken400 from "../response_types/login/PostOAuthToken400";
 import PostOAuthToken401 from "../response_types/login/PostOAuthToken401";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.authStorage.scopes = response.scope;
         this.authStorage.expiresIn = response.expires_in;
         console.log("successfully logged in");
-        this.router.navigate([]).catch(e => console.error(e));
+        this.router.navigate([""], {replaceUrl: true}).catch(e => console.error(e));
       },
       error: errResponse => {
         let error;
