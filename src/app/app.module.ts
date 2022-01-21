@@ -9,12 +9,14 @@ import {LoginComponent} from "./auth/login/login.component";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {IonIconComponent} from "./ion-icon/ion-icon.component";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
+import {FrameComponent} from "./frame/frame.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     IonIconComponent,
-    LoginComponent
+    LoginComponent,
+    FrameComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,6 @@ import {BaseUrlInterceptor} from "./base-url.interceptor";
       useClass: AuthInterceptor,
       multi: true
     }],
-  bootstrap: [LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
