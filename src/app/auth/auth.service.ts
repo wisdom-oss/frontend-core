@@ -1,5 +1,6 @@
 import {
   HttpClient,
+  HttpContext,
   HttpHeaders,
   HttpParams,
   HttpResponse
@@ -13,9 +14,10 @@ import PostOAuthToken400 from "./response_types/login/PostOAuthToken400";
 import PostOAuthToken401 from "./response_types/login/PostOAuthToken401";
 import PostRevoke200 from "./response_types/login/PostRevoke200";
 import PostRevoke403 from "./response_types/login/PostRevoke403";
+import {USE_API_URL} from "../base-url.interceptor";
 
 /** Url for the interaction. */
-const AUTH_API = "api/auth";
+const AUTH_URL = "auth";
 
 /**
  * Options for the post request in the service.
@@ -28,7 +30,7 @@ const httpOptions: any = {
     "Content-Type": "application/x-www-form-urlencoded"
   }),
   responseType: "json",
-  observe: "response"
+  context: new HttpContext().set(USE_API_URL, true)
 }
 
 /**
@@ -48,7 +50,7 @@ export class AuthService {
    */
   login(username: string, password: string) {
     return this.http.post(
-      join(AUTH_API, "oauth/token"),
+      join(AUTH_URL, "oauth/token"),
       new HttpParams({
         fromObject: {
           grant_type: "password",
@@ -71,7 +73,7 @@ export class AuthService {
    */
   refresh(token: string) {
     return this.http.post(
-      join(AUTH_API, "oauth/token"),
+      join(AUTH_URL, "oauth/token"),
       new HttpParams({
         fromObject: {
           grant_type: "refresh_token",
@@ -90,7 +92,7 @@ export class AuthService {
    */
   logout(token: string) {
     return this.http.post(
-      join(AUTH_API, "oauth/revoke"),
+      join(AUTH_URL, "oauth/revoke"),
       new HttpParams({fromObject: {
         token
       }}),

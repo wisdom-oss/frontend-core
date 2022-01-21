@@ -2,9 +2,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const baseUrl = "https://wisdom-demo.uol.de/"
+
 export const environment = {
   production: false,
-  baseUrl: "https://wisdom-demo.uol.de/"
+  baseUrl,
+  apiUrl: baseUrl + "api/"
 };
 
 /*
