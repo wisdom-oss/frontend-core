@@ -22,7 +22,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  private httpOptions(): Parameters<HttpClient["get"]>[1] {
+  private static httpOptions(): Parameters<HttpClient["get"]>[1] {
     return {
       responseType: "json",
       headers: new HttpHeaders({
@@ -32,7 +32,7 @@ export class UserService {
   }
 
   getUsers() {
-    return this.http.get(join(AUTH_API, "users"), this.httpOptions()) as
+    return this.http.get(join(AUTH_API, "users"), UserService.httpOptions()) as
       Observable<{status: 200} & HttpResponse<GetUsers200>>;
   }
 
@@ -50,11 +50,14 @@ export class UserService {
     if (scopes) body.scopes = scopes;
     if (roles) body.roles = roles;
 
-    return this.http.put(join(AUTH_API, "users"), body, this.httpOptions()) as
-      Observable<
-        {status: 201} & HttpResponse<PutUsers201> |
-        {status: 409} & HttpResponse<PutUsers409>
-      >;
+    return this.http.put(
+      join(AUTH_API, "users"),
+      body,
+      UserService.httpOptions()
+    ) as Observable<
+      {status: 201} & HttpResponse<PutUsers201> |
+      {status: 409} & HttpResponse<PutUsers409>
+    >;
   }
 
 
