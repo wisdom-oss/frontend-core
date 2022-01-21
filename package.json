@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "primp": "primp src -r",
-    "prebuild": "npm run primp",
+    "prestart": "npm run primp",
     "start": "ng serve --host=0.0.0.0 --disable-host-check",
+    "prebuild": "npm run primp",
     "build": "ng build",
     "watch": "ng build --watch --configuration development"
   },
