@@ -12,6 +12,8 @@ import {IonIconComponent} from "./ion-icon/ion-icon.component";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {FrameComponent} from "./frame/frame.component";
 import {StaticLoader} from "./i18n/StaticLoader";
+import {
+  BulmaIsToggleableDirective
 } from "./util/bulma/bulma-is-toggleable.directive";
 
 @NgModule({
@@ -20,6 +22,7 @@ import {StaticLoader} from "./i18n/StaticLoader";
     IonIconComponent,
     LoginComponent,
     FrameComponent,
+    BulmaIsToggleableDirective,
   ],
   imports: [
     BrowserModule,
