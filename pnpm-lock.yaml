@@ -14,6 +14,7 @@ specifiers:
   '@angular/platform-browser-dynamic': ~13.1.0
   '@angular/router': ~13.1.0
   '@compodoc/compodoc': ^1.1.18
+  '@ngx-translate/core': ^14.0.0
   '@types/node': ^16.11.12
   '@types/path-browserify': ^1.0.0
   apply-loader: ^2.0.0
@@ -39,6 +40,7 @@ dependencies:
   '@angular/platform-browser': 13.1.0_c9e48258c56445dd190cc2a07fd70b29
   '@angular/platform-browser-dynamic': 13.1.0_3b79e2b742b1e19e442677b1f097499e
   '@angular/router': 13.1.0_3a603c5d19fdb4a491507d1568bbdc1d
+  '@ngx-translate/core': 14.0.0_@angular+core@13.1.0+rxjs@7.4.0
   bulma: 0.9.3
   bulma-prefers-dark: 0.1.0-beta.1
   ionicons: 5.5.4
@@ -2984,6 +2986,17 @@ packages:
       typescript: 4.5.3
       webpack: 5.65.0_esbuild@0.14.2
     dev: true
+
+  /@ngx-translate/core/14.0.0_@angular+core@13.1.0+rxjs@7.4.0:
+    resolution: {integrity: sha512-UevdwNCXMRCdJv//0kC8h2eSfmi02r29xeE8E9gJ1Al4D4jEJ7eiLPdjslTMc21oJNGguqqWeEVjf64SFtvw2w==}
+    peerDependencies:
+      '@angular/core': '>=13.0.0'
+      rxjs: ^6.5.3 || ^7.4.0
+    dependencies:
+      '@angular/core': 13.1.0_rxjs@7.4.0+zone.js@0.11.4
+      rxjs: 7.4.0
+      tslib: 2.3.1
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
