@@ -1,7 +1,5 @@
 import {Injectable} from "@angular/core";
 
-import {AuthService} from "./auth.service";
-
 /** Key for the access token. */
 const ACCESS_TOKEN_KEY = "auth-token";
 /** Key fo the expiration date. */
@@ -23,8 +21,9 @@ export class AuthStorageService {
 
   /** Clears the session storage from the values stored by this service. */
   clear(): void {
-    [ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY, SCOPES_KEY]
-      .forEach(globalThis.sessionStorage.removeItem);
+    for (let key of [ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY, SCOPES_KEY]) {
+      globalThis.sessionStorage.removeItem(key);
+    }
   }
 
   /** Internal function to set session storage values. */
