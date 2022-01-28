@@ -2,6 +2,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
@@ -10,19 +11,28 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
 import {IonIconComponent} from "./ion-icon/ion-icon.component";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {FrameComponent} from "./frame/frame.component";
+import {StaticLoader} from "./i18n/StaticLoader";
+} from "./util/bulma/bulma-is-toggleable.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
     IonIconComponent,
     LoginComponent,
-    FrameComponent
+    FrameComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: globalThis.localStorage.getItem("lang") || "en_US",
+      loader: {
+        provide: TranslateLoader,
+        useClass: StaticLoader
+      }
+    })
   ],
   providers: [
     {
