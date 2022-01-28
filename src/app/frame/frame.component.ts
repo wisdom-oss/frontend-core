@@ -1,7 +1,8 @@
 import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+
 import {AuthService} from "../auth/auth.service";
 import {AuthStorageService} from "../auth/auth-storage.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-frame',
