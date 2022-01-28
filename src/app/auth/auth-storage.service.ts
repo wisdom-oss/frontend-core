@@ -21,7 +21,12 @@ export class AuthStorageService {
 
   /** Clears the session storage from the values stored by this service. */
   clear(): void {
-    for (let key of [ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY, SCOPES_KEY]) {
+    for (let key of [
+      ACCESS_TOKEN_KEY,
+      REFRESH_TOKEN_KEY,
+      EXPIRES_IN_KEY,
+      SCOPES_KEY
+    ]) {
       globalThis.sessionStorage.removeItem(key);
     }
   }
