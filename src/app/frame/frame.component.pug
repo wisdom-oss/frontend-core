@@ -12,11 +12,26 @@ nav.navbar.is-primary
           span.icon
             ion-icon(name="menu")
     .navbar-end
+      .navbar-item.has-dropdown.is-toggleable
+        .navbar-link
+          span.icon
+            ion-icon(name="language")
+          span {{"lang" | translate}}
+        .navbar-dropdown
+          .navbar-item
+            a.p-1(selectLang="de_DE")
+              span.icon-text
+                span.icon
+                  img(src="https://twemoji.maxcdn.com/2/72x72/1f1e9-1f1ea.png")
+                span.has-text-contrast.has-text-weight-medium Deutsch
+          .navbar-item
+            a.p-1(selectLang="en_US")
+              span.icon-text
+                span.icon
+                  img(src="https://twemoji.maxcdn.com/2/72x72/1f1fa-1f1f2.png")
+                span.has-text-contrast.has-text-weight-medium English
       .navbar-item
         .buttons
-          .button
-            span.icon
-              ion-icon(name="earth")
           .button
             span.icon
               ion-icon(name="person-circle")
@@ -32,31 +47,31 @@ nav.navbar.is-primary
     .content
       p Hier packen wir was cooles rein
   aside.column.is-2.box.p-5
-    p.menu-label Konto
+    p.menu-label {{"core.frame.account" | translate}}
     ul.menu-list
       li
         a((click)="logout()")
           span.icon-text
             span.icon
               ion-icon(name="log-out")
-            span Logout
-    p.menu-label Administration
+            span {{"core.frame.logout" | translate}}
+    p.menu-label {{"core.frame.administration" | translate}}
     ul.menu-list
       li
         a
           span.icon-text
             span.icon
               ion-icon(name="person")
-            span Nutzerverwaltung
+            span {{"core.frame.userManagement" | translate}}
       li
         a
           span.icon-text
             span.icon
               ion-icon(name="key")
-            span Berechtigungen
+            span {{"core.frame.permissions" | translate}}
       li
         a
           span.icon-text
             span.icon
               ion-icon(name="id-card")
-            span Rollen
+            span {{"core.frame.roles" | translate}}
