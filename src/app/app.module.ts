@@ -12,6 +12,7 @@ import {IonIconComponent} from "./ion-icon/ion-icon.component";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {FrameComponent} from "./frame/frame.component";
 import {StaticLoader} from "./i18n/StaticLoader";
+import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {
   BulmaIsToggleableDirective
 } from "./util/bulma/bulma-is-toggleable.directive";
@@ -23,6 +24,7 @@ import {
     LoginComponent,
     FrameComponent,
     BulmaIsToggleableDirective,
+    LangSelectorDirective
   ],
   imports: [
     BrowserModule,
