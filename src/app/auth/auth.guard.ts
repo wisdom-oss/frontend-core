@@ -29,10 +29,11 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> | UrlTree | boolean {
+  ): Observable<boolean | UrlTree> | UrlTree | boolean {
     if (route.url[0]?.path === "login") return true;
     let token = this.authStorage.accessToken;
-    if (!token) return this.router.parseUrl("/login");
+    let loginUrlTree = this.router.parseUrl("/login");
+    if (!token) return loginUrlTree;
     return new Observable(subscriber => {
       this.authService.validate(token!).subscribe({
         next: response => {
@@ -40,9 +41,19 @@ export class AuthGuard implements CanActivate {
           subscriber.complete();
         },
         error: errResponse => {
-          // TODO: maybe do something with the error response
-          subscriber.next(false);
+          if (errResponse.status !== 401) {
+            // TODO: handle non 401 codes gracefully
+            subscriber.next(false);
+            subscriber.complete();
+            return;
+          }
+
+          // TODO: first add refresh try here
+
+          this.authStorage.clear();
+          subscriber.next(loginUrlTree);
           subscriber.complete();
+          return;
         }
       });
     });
