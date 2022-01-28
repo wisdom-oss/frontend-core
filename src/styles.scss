@@ -9,3 +9,12 @@
 // Rest of Bulma
 @import "../node_modules/bulma/bulma";
 @import "../node_modules/bulma-prefers-dark/bulma-prefers-dark";
+
+.has-text-contrast {
+  color: lighten(black, 20);
+}
+@media (prefers-color-scheme: dark) {
+  .has-text-contrast {
+    color: darken(white, 20);
+  }
+}
