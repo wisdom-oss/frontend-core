@@ -94,8 +94,8 @@ export class AuthGuard implements CanActivate {
 
               error: refreshErrResponse => {
                 // token is no valid, send the user to the login page
-                if (refreshErrResponse.status === 401) return returnToLogin();
-                // TODO: handle non-401 status codes gracefully
+                if (refreshErrResponse.status === 400) return returnToLogin();
+                // TODO: handle non-400 status codes gracefully
               }
             });
             return;
