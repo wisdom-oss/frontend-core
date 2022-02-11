@@ -3,10 +3,11 @@ import {of, Observable} from "rxjs";
 
 import de_DELang from "./langs/de_DE";
 import en_USLang from "./langs/en_US";
+import {ModuleProvider} from "../module-provider";
 
 let langs = {
-  de_DE: de_DELang,
-  en_US: en_USLang
+  de_DE: Object.assign({}, de_DELang, ModuleProvider.langs("de_DE")),
+  en_US: Object.assign({}, en_USLang, ModuleProvider.langs("en_US"))
 }
 
 /*
