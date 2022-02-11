@@ -1,7 +1,11 @@
 import {environment as commonEnvironment} from "./environment.common";
 
+const baseUrl = "http://localhost:4200/"
+
 export const environment = Object.assign({}, commonEnvironment, {
-  production: false
+  production: false,
+  baseUrl,
+  apiUrl: baseUrl + "api/"
 });
 
 /*

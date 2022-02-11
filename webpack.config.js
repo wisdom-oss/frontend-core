@@ -8,5 +8,13 @@ module.exports = {
         {loader: "pug-loader"}
       ]
     }]
+  },
+  devServer: {
+    proxy: {
+      '/api/*': {
+        target: 'https://wisdom-demo.uol.de',
+        changeOrigin: true
+      }
+    }
   }
 }
