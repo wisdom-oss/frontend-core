@@ -1,0 +1,147 @@
+<nav class="navbar is-primary">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <span class="icon-text title">
+        <span class="icon">
+          <ion-icon name="rainy"></ion-icon>
+        </span>
+        <span>
+          WISdoM-OSS
+        </span>
+      </span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <div class="button">
+          <span class="icon">
+            <ion-icon name="menu"></ion-icon>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-toggleable">
+        <div class="navbar-link">
+          <span class="icon">
+            <ion-icon name="language"></ion-icon>
+          </span>
+          <span>
+            {{"lang" | translate}}
+          </span>
+        </div>
+        <div class="navbar-dropdown">
+          <div class="navbar-item">
+            <a class="p-1" selectLang="de_DE">
+              <span class="icon-text">
+                <span class="icon">
+                  <img
+                    src="https://twemoji.maxcdn.com/2/72x72/1f1e9-1f1ea.png"/>
+                </span>
+                <span class="has-text-contrast has-text-weight-medium">
+                  Deutsch
+                </span>
+              </span>
+            </a>
+          </div>
+          <div class="navbar-item">
+            <a class="p-1" selectLang="en_US">
+              <span class="icon-text">
+                <span class="icon">
+                  <img
+                    src="https://twemoji.maxcdn.com/2/72x72/1f1fa-1f1f2.png"/>
+                </span>
+                <span class="has-text-contrast has-text-weight-medium">
+                  English
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-item">
+        <div class="buttons">
+          <div class="button">
+            <span class="icon">
+              <ion-icon name="person-circle"></ion-icon>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="columns" style="height: 100vh">
+  <aside class="column is-2 box p-5">
+    <p class="menu-label">ein Menü</p>
+    <ul class="menu-list">
+      <li><a>Dashboard</a></li>
+      <li><a>ein Link</a></li>
+    </ul>
+  </aside>
+  <main class="column">
+    <div style="margin-top: 0.75rem">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="content">
+      <p>Hier packen wir was cooles rein</p>
+    </div>
+  </main>
+  <aside class="column is-2 box p-5">
+    <p class="menu-label">{{"core.frame.account" | translate}}</p>
+    <ul class="menu-list">
+      <li>
+        <a (click)="logout()">
+          <span class="icon-text">
+            <span class="icon">
+              <ion-icon name="log-out"></ion-icon>
+            </span>
+            <span>
+              {{"core.frame.logout" | translate}}
+            </span>
+          </span>
+        </a>
+      </li>
+    </ul>
+    <p class="menu-label">{{"core.frame.administration" | translate}}</p>
+    <ul class="menu-list">
+      <li>
+        <a>
+          <span class="icon-text">
+            <span class="icon">
+              <ion-icon name="person"></ion-icon>
+            </span>
+            <span>
+              {{"core.frame.userManagement" | translate}}
+            </span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span class="icon-text">
+            <span class="icon">
+              <ion-icon name="key"></ion-icon>
+            </span>
+            <span>
+              {{"core.frame.permissions" | translate}}
+            </span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span class="icon-text">
+            <span class="icon">
+              <ion-icon name="id-card"></ion-icon>
+            </span>
+            <span>
+              {{"core.frame.roles" | translate}}
+            </span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+</div>

@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+
+// Bulma Functions
+@import "../../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+
+// this space here allows to define custom colors later on
+
+// Rest of Bulma
+@import "../../../node_modules/bulma/bulma";
+@import "../../../node_modules/bulma-prefers-dark/bulma-prefers-dark";
+
+.has-text-contrast {
+  color: lighten(black, 20);
+}
+@media (prefers-color-scheme: dark) {
+  .has-text-contrast {
+    color: darken(white, 20);
+  }
+}

@@ -1,0 +1,77 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column is-narrow box">
+          <div class="container p-3">
+            <p class="title has-text-centered">WISdoM OSS</p>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" noValidate>
+              <div class="field">
+                <label class="label">{{"core.login.username" | translate}}</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input
+                    class="input"
+                    [class.is-success]="f.value.username"
+                    type="text"
+                    name="username"
+                    placeholder="{{'core.login.username' | translate}}"
+                    required
+                    ngModel
+                  />
+                  <span class="icon is-left">
+                    <ion-icon name="id-card"></ion-icon>
+                  </span>
+                  <span class="icon is-right">
+                    <ion-icon [class.is-invisible]="!f.value.username" name="checkmark"></ion-icon>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">{{"core.login.password" | translate}}</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input
+                    class="input"
+                    [class.is-danger]="loginHasIssue"
+                    type="password"
+                    name="password"
+                    placeholder="{{'core.login.password' | translate}}"
+                    required
+                    ngModel
+                    #passwordInput
+                  />
+                  <span class="icon is-left">
+                    <ion-icon name="key"></ion-icon>
+                  </span>
+                  <span class="icon is-right">
+                    <ion-icon [class.is-invisible]="!loginHasIssue" name="warning"></ion-icon>
+                  </span>
+                </div>
+              </div>
+              <div class="content m-0">
+                <a>{{"core.login.forgotPassword" | translate}}</a>
+              </div>
+              <p
+                class="has-text-centered has-text-danger is-centered m-1"
+                [class.is-invisible]="!loginHasIssue"
+              >
+                {{loginHasIssue}}
+              </p>
+              <div class="field">
+                <p class="control">
+                  <button
+                    class="button is-success is-fullwidth"
+                    type="submit"
+                  >
+                    {{"core.login.login" | translate}}
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </div>
+</section>
