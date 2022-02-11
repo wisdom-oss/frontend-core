@@ -23,7 +23,12 @@
       "es2020",
       "dom"
     ],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@wisdom-frontend/*": [
+        "./node_modules/@wisdom-frontend/*"
+      ]
+    }
   },
   "files": [
     "src/main.ts",

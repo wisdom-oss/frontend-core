@@ -17,6 +17,7 @@ specifiers:
   '@ngx-translate/core': ^14.0.0
   '@types/node': ^17.0.13
   '@types/path-browserify': ^1.0.0
+  '@wisdom-frontend/example': file:../example/dist/example
   apply-loader: ^2.0.0
   bulma: 0.9.3
   bulma-prefers-dark: ^0.1.0-beta.1
@@ -41,6 +42,7 @@ dependencies:
   '@angular/platform-browser-dynamic': 13.2.0_891bed6000718f6dbfd0b9e5b1c11477
   '@angular/router': 13.2.0_3818833a50c41bb20564f3b328fcb622
   '@ngx-translate/core': 14.0.0_@angular+core@13.2.0+rxjs@7.5.2
+  '@wisdom-frontend/example': link:../example/dist/example
   bulma: 0.9.3
   bulma-prefers-dark: 0.1.0-beta.1
   ionicons: 6.0.1
@@ -5974,7 +5976,7 @@ packages:
       tslib: 2.3.1
     optionalDependencies:
       errno: 0.1.8
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       image-size: 0.5.5
       make-dir: 2.1.0
       mime: 1.6.0
