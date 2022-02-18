@@ -12,7 +12,7 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {FrameComponent} from "./frame/frame.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
-import {StaticLoader} from "./i18n/StaticLoader";
+import {StaticLoader} from "./i18n/static-loader";
 
 @NgModule({
   declarations: [
