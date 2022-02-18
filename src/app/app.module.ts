@@ -13,13 +13,15 @@ import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {FrameComponent} from "./frame/frame.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {StaticLoader} from "./i18n/static-loader";
+import { SideBarComponent } from './frame/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FrameComponent,
-    LangSelectorDirective
+    LangSelectorDirective,
+    SideBarComponent
   ],
   imports: [
     WisdomModule,

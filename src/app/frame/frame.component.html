@@ -73,19 +73,12 @@
   </div>
 </nav>
 <div class="columns" style="height: 100vh">
-  <aside class="column is-2 box p-5">
-    <p class="menu-label">ein Menü</p>
-    <ul class="menu-list">
-      <li><a>Dashboard</a></li>
-      <li><a>ein Link</a></li>
-    </ul>
+  <aside class="column is-2 box p-5 menu">
+    <app-side-bar></app-side-bar>
   </aside>
   <main class="column" style="overflow-y: auto; padding-bottom: 100px">
     <div style="margin-top: 0.75rem">
       <router-outlet></router-outlet>
-    </div>
-    <div class="content">
-      <p>Hier packen wir was cooles rein</p>
     </div>
   </main>
   <aside class="column is-2 box p-5">

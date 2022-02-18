@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
 import {AuthStorageService} from "../auth/auth-storage.service";
 
+// TODO: add further nesting - https://bulma.io/documentation/components/menu/
+
 @Component({
   selector: 'app-frame',
   templateUrl: './frame.component.html',
