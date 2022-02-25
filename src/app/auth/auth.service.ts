@@ -38,7 +38,7 @@ const httpOptions: Parameters<HttpClient["post"]>[2] = {
  * Service handling the OAuth interaction.
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthService {
 

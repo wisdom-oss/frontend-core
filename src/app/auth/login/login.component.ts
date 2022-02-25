@@ -8,8 +8,8 @@ import PostOAuthToken400 from "../response_types/login/PostOAuthToken400";
 import PostOAuthToken401 from "../response_types/login/PostOAuthToken401";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html'
+  selector: "app-login",
+  templateUrl: "./login.component.html"
 })
 export class LoginComponent implements OnInit {
 

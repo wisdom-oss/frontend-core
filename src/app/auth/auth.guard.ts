@@ -18,7 +18,7 @@ import {AuthService} from "./auth.service";
  * Also tries to refresh the token if the old one is not valid.
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthGuard implements CanActivate {
 

@@ -2,7 +2,7 @@ import {Directive, Input, HostListener} from "@angular/core";
 import {TranslateService} from "@ngx-translate/core";
 
 @Directive({
-  selector: '[selectLang]'
+  selector: "[selectLang]"
 })
 export class LangSelectorDirective {
 

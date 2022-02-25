@@ -7,8 +7,8 @@ import {AuthStorageService} from "../auth/auth-storage.service";
 // TODO: add further nesting - https://bulma.io/documentation/components/menu/
 
 @Component({
-  selector: 'app-frame',
-  templateUrl: './frame.component.html',
+  selector: "app-frame",
+  templateUrl: "./frame.component.html",
 })
 export class FrameComponent {
 

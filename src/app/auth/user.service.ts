@@ -16,7 +16,7 @@ const getOptions: Parameters<HttpClient["get"]>[1] = {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class UserService {
 
