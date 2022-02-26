@@ -11,15 +11,23 @@ import PutUsers409 from "./response_types/users/PutUsers409";
 /** Url for the interaction. */
 const AUTH_API = "localhost:8090/auth/";
 
+/** Options passed into the get requests. */
 const getOptions: Parameters<HttpClient["get"]>[1] = {
   responseType: "json"
 }
 
+// FIXME: this is currently pretty wrong in the implementation
+
+/** Service to interact with the user management of the auth server. */
 @Injectable({
   providedIn: "root"
 })
 export class UserService {
 
+  /**
+   * Constructor.
+   * @param http Service to interact with the server via http
+   */
   constructor(private http: HttpClient) {}
 
   private static httpOptions(): Parameters<HttpClient["get"]>[1] {

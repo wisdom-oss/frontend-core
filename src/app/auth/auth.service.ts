@@ -2,19 +2,14 @@ import {
   HttpClient,
   HttpContext,
   HttpHeaders,
-  HttpParams,
-  HttpErrorResponse,
-  HttpResponse
+  HttpParams
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {join} from "path-browserify";
 import {Observable} from "rxjs";
 
 import PostOAuthToken200 from "./response_types/login/PostOAuthToken200";
-import PostOAuthToken400 from "./response_types/login/PostOAuthToken400";
-import PostOAuthToken401 from "./response_types/login/PostOAuthToken401";
 import PostRevoke200 from "./response_types/login/PostRevoke200";
-import PostRevoke403 from "./response_types/login/PostRevoke403";
 import {USE_API_URL} from "../base-url.interceptor";
 
 /** Url for the interaction. */
@@ -42,6 +37,10 @@ const httpOptions: Parameters<HttpClient["post"]>[2] = {
 })
 export class AuthService {
 
+  /**
+   * Constructor.
+   * @param http For making requests with the auth server
+   */
   constructor(private http: HttpClient) {}
 
   /**

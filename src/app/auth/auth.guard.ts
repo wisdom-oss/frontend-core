@@ -22,6 +22,12 @@ import {AuthService} from "./auth.service";
 })
 export class AuthGuard implements CanActivate {
 
+  /**
+   * Constructor.
+   * @param authStorage The storage containing the tokens
+   * @param authService The service used to interact with the auth server
+   * @param router The router to route to the login if necessary
+   */
   constructor(
     private authStorage: AuthStorageService,
     private authService: AuthService,

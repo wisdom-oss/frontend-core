@@ -1,12 +1,11 @@
 import {
+  HttpContextToken,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest,
-  HttpContextToken
+  HttpRequest
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {join} from "path-browserify";
 import {Observable} from "rxjs";
 
 import {environment} from "../environments/environment";
@@ -28,8 +27,6 @@ export const USE_API_URL = new HttpContextToken<boolean>(() => false);
 /** Class used to prepend the base url to requests. */
 @Injectable()
 export class BaseUrlInterceptor implements HttpInterceptor {
-
-  constructor() {}
 
   /**
    * Prepends the base url from the environment to request url
