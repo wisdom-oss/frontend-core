@@ -7,5 +7,5 @@ import {Component} from "@angular/core";
 })
 export class AppComponent {
   /** The title of the website. */
-  title = "frontend-core";
+  title = "WISdoM-OSS";
 }
