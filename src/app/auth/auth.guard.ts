@@ -68,8 +68,11 @@ export class AuthGuard implements CanActivate {
         error: errResponse => {
           // token is invalid
           if (errResponse.status !== 401) {
-            // TODO: handle non-401 codes gracefully
-            subscriber.next(false);
+            console.log(errResponse);
+            let errUrl = this.router.parseUrl(`error/${errResponse.status}`);
+            errUrl.queryParams = {message: errResponse.statusText};
+            // TODO: handle non 401 errors better than this component
+            subscriber.next(errUrl);
             subscriber.complete();
             return;
           }

@@ -14,6 +14,7 @@ import {FrameComponent} from "./frame/frame.component";
 import {SideBarComponent} from "./frame/side-bar/side-bar.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {StaticLoader} from "./i18n/static-loader";
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {StaticLoader} from "./i18n/static-loader";
     LoginComponent,
     FrameComponent,
     LangSelectorDirective,
-    SideBarComponent
+    SideBarComponent,
+    ErrorComponent
   ],
   imports: [
     WisdomModule,
