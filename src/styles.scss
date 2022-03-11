@@ -10,6 +10,17 @@
 @import "../../../node_modules/bulma/bulma";
 @import "../../../node_modules/bulma-prefers-dark/bulma-prefers-dark";
 
+@media (prefers-color-scheme: light) {
+  .is-hidden-light {
+    display: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .is-hidden-dark {
+    display: none;
+  }
+}
+
 .has-text-contrast {
   color: lighten(black, 20);
 }
