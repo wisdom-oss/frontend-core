@@ -9,20 +9,7 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 
 import {environment} from "../environments/environment";
-
-/**
- * {@link HttpContextToken} used to determine if the base url should be used.
- *
- * Defaults to `true`.
- */
-export const USE_BASE_URL = new HttpContextToken<boolean>(() => true);
-
-/**
- * {@link HttpContextToken} used to determine if the api url should be used.
- *
- * Defaults to `false`.
- */
-export const USE_API_URL = new HttpContextToken<boolean>(() => false);
+import {USE_BASE_URL, USE_API_URL} from "common";
 
 /** Class used to prepend the base url to requests. */
 @Injectable()
