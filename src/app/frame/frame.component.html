@@ -1,6 +1,15 @@
-<nav class="navbar is-primary">
-  <div class="navbar-brand">
-    <a class="navbar-item" routerLink="">
+<div class="navbar is-primary">
+  <div class="navbar-menu is-invisible">
+    <div class="navbar-item">
+      <div class="button"></div>
+    </div>
+  </div>
+</div>
+<div class="columns is-centered is-overlay">
+  <div class="column" style="max-width: 1920px">
+    <nav class="navbar is-primary">
+      <div class="navbar-brand">
+        <a class="navbar-item" routerLink="">
       <span class="title">
         <span class="icon-text">
         <span class="icon">
@@ -11,31 +20,31 @@
         </span>
       </span>
       </span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start">
-      <div class="navbar-item">
-        <div class="button">
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <div class="button">
           <span class="icon">
             <ion-icon name="menu"></ion-icon>
           </span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="navbar-end">
-      <div class="navbar-item has-dropdown is-toggleable">
-        <div class="navbar-link">
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-toggleable">
+            <div class="navbar-link">
           <span class="icon">
             <ion-icon name="language"></ion-icon>
           </span>
-          <span>
+              <span>
             {{"lang" | translate}}
           </span>
-        </div>
-        <div class="navbar-dropdown">
-          <div class="navbar-item">
-            <a class="p-1" selectLang="de_DE">
+            </div>
+            <div class="navbar-dropdown">
+              <div class="navbar-item">
+                <a class="p-1" selectLang="de_DE">
               <span class="icon-text">
                 <span class="icon">
                   <img
@@ -45,10 +54,10 @@
                   Deutsch
                 </span>
               </span>
-            </a>
-          </div>
-          <div class="navbar-item">
-            <a class="p-1" selectLang="en_US">
+                </a>
+              </div>
+              <div class="navbar-item">
+                <a class="p-1" selectLang="en_US">
               <span class="icon-text">
                 <span class="icon">
                   <img
@@ -58,36 +67,36 @@
                   English
                 </span>
               </span>
-            </a>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="navbar-item">
-        <div class="buttons">
-          <div class="button">
+          <div class="navbar-item">
+            <div class="buttons">
+              <div class="button">
             <span class="icon">
               <ion-icon name="person-circle"></ion-icon>
             </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</nav>
-<div class="columns mt-0" style="height: 100vh">
-  <aside class="column is-2 box p-5 menu" style="margin-top: -0.75rem">
-    <app-side-bar></app-side-bar>
-  </aside>
-  <main class="column" style="overflow-y: auto; padding-bottom: 100px">
-    <div style="margin-top: 0.75rem">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
-  <aside class="column is-2 box p-5" style="margin-top: -0.75rem">
-    <p class="menu-label">{{"core.frame.account" | translate}}</p>
-    <ul class="menu-list">
-      <li>
-        <a (click)="logout()">
+    </nav>
+    <div class="columns mt-0" style="height: 100vh">
+      <aside class="column is-2 box p-5 menu" style="margin-top: -0.75rem">
+        <app-side-bar></app-side-bar>
+      </aside>
+      <main class="column" style="overflow-y: auto; padding-bottom: 100px">
+        <div style="margin-top: 0.75rem">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+      <aside class="column is-2 box p-5" style="margin-top: -0.75rem">
+        <p class="menu-label">{{"core.frame.account" | translate}}</p>
+        <ul class="menu-list">
+          <li>
+            <a (click)="logout()">
           <span class="icon-text">
             <span class="icon">
               <ion-icon name="log-out"></ion-icon>
@@ -96,13 +105,13 @@
               {{"core.frame.logout" | translate}}
             </span>
           </span>
-        </a>
-      </li>
-    </ul>
-    <p class="menu-label">{{"core.frame.administration" | translate}}</p>
-    <ul class="menu-list">
-      <li>
-        <a>
+            </a>
+          </li>
+        </ul>
+        <p class="menu-label">{{"core.frame.administration" | translate}}</p>
+        <ul class="menu-list">
+          <li>
+            <a>
           <span class="icon-text">
             <span class="icon">
               <ion-icon name="person"></ion-icon>
@@ -111,10 +120,10 @@
               {{"core.frame.userManagement" | translate}}
             </span>
           </span>
-        </a>
-      </li>
-      <li>
-        <a>
+            </a>
+          </li>
+          <li>
+            <a>
           <span class="icon-text">
             <span class="icon">
               <ion-icon name="key"></ion-icon>
@@ -123,10 +132,10 @@
               {{"core.frame.permissions" | translate}}
             </span>
           </span>
-        </a>
-      </li>
-      <li>
-        <a>
+            </a>
+          </li>
+          <li>
+            <a>
           <span class="icon-text">
             <span class="icon">
               <ion-icon name="id-card"></ion-icon>
@@ -135,8 +144,10 @@
               {{"core.frame.roles" | translate}}
             </span>
           </span>
-        </a>
-      </li>
-    </ul>
-  </aside>
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
 </div>
