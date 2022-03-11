@@ -17,6 +17,11 @@ import {AuthStorageService} from "../auth/auth-storage.service";
 })
 export class FrameComponent {
 
+  /** Boolean value if the left sidebar should be hidden. */
+  hideSidebar: boolean = false;
+  /** Boolean value if the right sidebar should be hidden. */
+  hideUserBar: boolean = false;
+
   /**
    * Constructor.
    * @param authService Service to interact with the auth server
