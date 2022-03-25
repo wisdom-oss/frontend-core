@@ -1,5 +1,7 @@
 import {Routes} from "@angular/router";
 
+import {AuthGuard} from "./auth/auth.guard";
+
 import * as modules from "../../../../modules";
 
 /**
@@ -24,6 +26,7 @@ export class ModuleProvider {
       routes.push({
         path: module.wisdomInterface.path,
         component: module.wisdomInterface.entryComponent,
+        canActivate: [AuthGuard]
       });
     }
     return routes;
