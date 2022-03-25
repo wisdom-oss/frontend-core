@@ -5,12 +5,12 @@ import {
   HttpParams
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {USE_API_URL} from "common";
 import {join} from "path-browserify";
 import {Observable} from "rxjs";
 
 import PostOAuthToken200 from "./response_types/login/PostOAuthToken200";
 import PostRevoke200 from "./response_types/login/PostRevoke200";
-import {USE_API_URL} from "common";
 
 /** Url for the interaction. */
 const AUTH_URL = "auth";

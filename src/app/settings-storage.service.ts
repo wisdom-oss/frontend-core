@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from "@angular/core";
 
 /** Key for the sidebar hide setting. */
 const HIDE_SIDEBAR_KEY = "hide-sidebar";

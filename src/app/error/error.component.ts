@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 
 /** Basic error component to display error codes on the full screen. */

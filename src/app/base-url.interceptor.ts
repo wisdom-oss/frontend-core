@@ -1,15 +1,15 @@
 import {
-  HttpContextToken,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest
+  HttpRequest,
+  HttpContextToken
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {USE_BASE_URL, USE_API_URL} from "common";
 import {Observable} from "rxjs";
 
 import {environment} from "../environments/environment";
-import {USE_BASE_URL, USE_API_URL} from "common";
 
 /** Class used to prepend the base url to requests. */
 @Injectable()

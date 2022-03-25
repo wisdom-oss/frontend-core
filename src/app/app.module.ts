@@ -10,11 +10,11 @@ import {AppComponent} from "./app.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
+import {ErrorComponent} from "./error/error.component";
 import {FrameComponent} from "./frame/frame.component";
 import {SideBarComponent} from "./frame/side-bar/side-bar.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {StaticLoader} from "./i18n/static-loader";
-import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
