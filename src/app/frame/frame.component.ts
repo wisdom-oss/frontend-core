@@ -14,7 +14,7 @@ import {SettingsStorageService} from "../settings-storage.service";
  */
 @Component({
   selector: "app-frame",
-  templateUrl: "./frame.component.html",
+  templateUrl: "./frame.component.html"
 })
 export class FrameComponent {
 

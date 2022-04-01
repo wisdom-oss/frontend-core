@@ -83,7 +83,7 @@
         </div>
       </div>
     </nav>
-    <div class="columns mt-0" style="height: 100vh">
+    <div class="columns mt-0 is-mobile" style="height: 100vh">
       <aside
         *ngIf="!hideSidebar"
         class="column is-2 box p-5 menu"
@@ -94,7 +94,6 @@
       <main
         class="column"
         style="overflow-y: auto; padding-bottom: 100px"
-        [ngStyle]="{'margin-right.px': (hideUserBar ? 12 : undefined)}"
       >
         <div style="margin-top: 0.75rem; padding-right: 0.8rem; padding-left: 0.8rem">
           <router-outlet></router-outlet>
