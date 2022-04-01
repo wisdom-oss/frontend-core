@@ -5,7 +5,7 @@ import {
   HttpRequest
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable, tap} from "rxjs";
 
 import {AuthStorageService} from "./auth-storage.service";
 
@@ -39,6 +39,8 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: request.headers.set(TOKEN_HEADER_KEY, "Bearer " + token)
       });
     }
-    return next.handle(authRequest);
+    return next.handle(authRequest).pipe(tap(event => {
+      // TODO: handle if the event is 401
+    }));
   }
 }
