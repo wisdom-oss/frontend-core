@@ -15,6 +15,7 @@ import {FrameComponent} from "./frame/frame.component";
 import {SideBarComponent} from "./frame/side-bar/side-bar.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {StaticLoader} from "./i18n/static-loader";
+import {CacheInterceptor} from "./cache.interceptor";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,13 @@ import {StaticLoader} from "./i18n/static-loader";
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }],
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
