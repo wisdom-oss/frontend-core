@@ -7,24 +7,23 @@ is-flex
 is-flex-direction-column
 is-justify-content-center
 loader-container
-is-clipped
 "
     [style.height.%]="isLoading ? 100 : 0"
   >
-    <div class="has-text-centered">
+    <div class="has-text-centered" [style.opacity]="isLoading ? 1 : 0">
       <p style="font-size: 12rem; margin-bottom: -5rem; margin-top: -5rem; opacity: 0.93">
         <ion-icon name="cloud"></ion-icon>
       </p>
       <p>
-  <span style="font-size: 3rem" class="item">
-    <ion-icon name="water"></ion-icon>
-  </span>
         <span style="font-size: 3rem" class="item">
-    <ion-icon name="water"></ion-icon>
-  </span>
-        <span style="font-size: 3rem" class="item">
-    <ion-icon name="water"></ion-icon>
-  </span>
+          <ion-icon name="water"></ion-icon>
+        </span>
+              <span style="font-size: 3rem" class="item">
+          <ion-icon name="water"></ion-icon>
+        </span>
+              <span style="font-size: 3rem" class="item">
+          <ion-icon name="water"></ion-icon>
+        </span>
       </p>
     </div>
   </div>
