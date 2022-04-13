@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest,
+  HttpRequest, HttpResponse,
   HttpResponseBase
 } from '@angular/common/http';
 import {Observable, tap} from 'rxjs';
@@ -19,12 +20,19 @@ export class LoaderInterceptor implements HttpInterceptor {
     if (!request.context.get(USE_LOADER)) return next.handle(request);
     let observable = next.handle(request);
     this.service.addLoader(new Promise(resolve => {
-      observable = observable.pipe(tap(value => {
-        if (value instanceof HttpResponseBase) {
-          return resolve(value);
+      observable = observable.pipe(tap({
+        next(value) {
+          if (value instanceof HttpResponse) {
+            return resolve(value);
+          }
+        },
+        error(err) {
+          if (err instanceof HttpErrorResponse) {
+            return resolve(err);
+          }
         }
       }))
-    }));
+    }))
     return observable;
   }
 }
