@@ -17,6 +17,7 @@ import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {StaticLoader} from "./i18n/static-loader";
 import {CacheInterceptor} from "./cache.interceptor";
 import { LoaderComponent } from './frame/loader/loader.component';
+import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,11 @@ import { LoaderComponent } from './frame/loader/loader.component';
     })
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,

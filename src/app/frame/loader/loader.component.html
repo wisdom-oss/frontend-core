@@ -10,7 +10,10 @@ loader-container
 "
     [style.height.%]="isLoading ? 100 : 0"
   >
-    <div class="has-text-centered" [style.opacity]="isLoading ? 1 : 0">
+    <div
+      class="has-text-centered"
+      [style.display]="isLoading ? null : 'none'"
+    >
       <p style="font-size: 12rem; margin-bottom: -5rem; margin-top: -5rem; opacity: 0.93">
         <ion-icon name="cloud"></ion-icon>
       </p>

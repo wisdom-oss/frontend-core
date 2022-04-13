@@ -1,18 +1,19 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {LoaderService} from "./loader.service";
 
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent implements AfterViewInit {
+export class LoaderComponent implements OnInit {
 
-  isLoading = true;
+  constructor(private service: LoaderService) {}
 
-  ngAfterViewInit(): void {
-    setTimeout(() => this.isLoading = false, 5000);
+  isLoading = false;
+
+  ngOnInit(): void {
+    this.service.loading.subscribe(value => this.isLoading = value);
   }
-
-
 
 }
