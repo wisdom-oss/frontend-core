@@ -18,6 +18,7 @@ import {StaticLoader} from "./i18n/static-loader";
 import {CacheInterceptor} from "./cache.interceptor";
 import { LoaderComponent } from './frame/loader/loader.component';
 import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
+import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 
 @NgModule({
   declarations: [
@@ -62,6 +63,11 @@ import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CacheInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SanitizeUrlInterceptor,
       multi: true
     }
   ],
