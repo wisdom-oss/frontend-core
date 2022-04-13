@@ -22,4 +22,9 @@ export class LoaderService {
       .then(() => this.promises = []);
   }
 
+  clearLoading() {
+    this.promises = [];
+    this._loading.next(false);
+  }
+
 }

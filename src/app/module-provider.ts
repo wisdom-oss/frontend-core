@@ -3,6 +3,7 @@ import {Routes} from "@angular/router";
 import {AuthGuard} from "./auth/auth.guard";
 
 import * as modules from "../../../../modules";
+import {LoaderGuard} from "./frame/loader/loader.guard";
 
 /**
  * Class to provide data from the reexported wisdom modules.
@@ -26,7 +27,7 @@ export class ModuleProvider {
       routes.push({
         path: module.wisdomInterface.path,
         component: module.wisdomInterface.entryComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, LoaderGuard]
       });
     }
     return routes;
