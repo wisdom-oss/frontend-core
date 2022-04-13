@@ -1,0 +1,34 @@
+<div class="main-container">
+  <div
+    class="
+has-background-primary
+has-text-white
+is-flex
+is-flex-direction-column
+is-justify-content-center
+loader-container
+is-clipped
+"
+    [style.height.%]="isLoading ? 100 : 0"
+  >
+    <div class="has-text-centered">
+      <p style="font-size: 12rem; margin-bottom: -5rem; margin-top: -5rem; opacity: 0.93">
+        <ion-icon name="cloud"></ion-icon>
+      </p>
+      <p>
+  <span style="font-size: 3rem" class="item">
+    <ion-icon name="water"></ion-icon>
+  </span>
+        <span style="font-size: 3rem" class="item">
+    <ion-icon name="water"></ion-icon>
+  </span>
+        <span style="font-size: 3rem" class="item">
+    <ion-icon name="water"></ion-icon>
+  </span>
+      </p>
+    </div>
+  </div>
+  <div [ngClass]="isLoading ? 'is-hidden' : ''" class="pb-3">
+    <ng-content></ng-content>
+  </div>
+</div>

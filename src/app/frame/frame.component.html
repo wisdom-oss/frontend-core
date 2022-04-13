@@ -92,12 +92,16 @@
         <app-side-bar></app-side-bar>
       </aside>
       <main
-        class="column"
-        style="overflow-y: auto; padding-bottom: 100px"
+        class="column p-0"
+        style="overflow-y: auto"
       >
-        <div style="margin-top: 0.75rem; padding-right: 0.8rem; padding-left: 0.8rem">
-          <router-outlet></router-outlet>
-        </div>
+        <app-loader>
+          <div class="p-3" style="padding-bottom: 100px">
+            <div style="margin-top: 0.75rem; padding-right: 0.8rem; padding-left: 0.8rem">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </app-loader>
       </main>
       <aside
         *ngIf="!hideUserBar"

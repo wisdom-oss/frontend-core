@@ -1,0 +1,58 @@
+.item {
+  position: relative;
+  top: 0;
+  -webkit-animation: bounce 1s infinite ease-in-out;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.item:nth-child(1) {
+  -webkit-animation-delay: -1.4s;
+  animation-delay: 0s - 1s;
+}
+.item:nth-child(2) {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: 0.3s - 1s;
+}
+.item:nth-child(3) {
+  -webkit-animation-delay: -0s;
+  animation-delay: 0.6s - 1;
+}
+
+
+@-webkit-keyframes bounce {
+  0%, 100% {
+    top: -15px;
+    opacity: 0.8;
+  }
+  50% {
+    top: 15px;
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    top: -10px;
+    opacity: 0.8;
+  }
+  50% {
+    top: 10px;
+    opacity: 1;
+  }
+}
+
+.loader-container {
+  transition: height 0.8s ease;
+  z-index: 10;
+}
+
+.main-container {
+  height: calc(100vh - 56px);
+  display: grid;
+  overflow-y: scroll;
+}
+
+.main-container > div {
+  grid-column: 1;
+  grid-row: 1;
+}

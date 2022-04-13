@@ -16,6 +16,7 @@ import {SideBarComponent} from "./frame/side-bar/side-bar.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {StaticLoader} from "./i18n/static-loader";
 import {CacheInterceptor} from "./cache.interceptor";
+import { LoaderComponent } from './frame/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {CacheInterceptor} from "./cache.interceptor";
     FrameComponent,
     LangSelectorDirective,
     SideBarComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoaderComponent
   ],
   imports: [
     WisdomModule,
