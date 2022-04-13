@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
-  HttpRequest,
-  HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpResponse
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponseBase
 } from '@angular/common/http';
-import {firstValueFrom, lastValueFrom, Observable, tap} from 'rxjs';
+import {Observable, tap} from 'rxjs';
 import {LoaderService} from "./loader.service";
 import {USE_LOADER} from "common";
 
@@ -19,7 +20,7 @@ export class LoaderInterceptor implements HttpInterceptor {
     let observable = next.handle(request);
     this.service.addLoader(new Promise(resolve => {
       observable = observable.pipe(tap(value => {
-        if (value instanceof HttpResponse) {
+        if (value instanceof HttpResponseBase) {
           return resolve(value);
         }
       }))
