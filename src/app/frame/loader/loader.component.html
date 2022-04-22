@@ -28,6 +28,8 @@ loader-container
           <ion-icon name="water"></ion-icon>
         </span>
       </p>
+      <p *ngIf="displayTexts.length"></p>
+      <p class="title has-text-white" *ngFor="let text of displayTexts">{{text | translate}}</p>
     </div>
   </div>
   <div [ngClass]="isLoading ? 'is-hidden' : ''" class="pb-3">

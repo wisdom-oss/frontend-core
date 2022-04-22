@@ -17,9 +17,10 @@ export class LoaderInterceptor implements HttpInterceptor {
   constructor(private service: LoaderService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (!request.context.get(USE_LOADER)) return next.handle(request);
+    let context = request.context.get(USE_LOADER);
+    if (!context) return next.handle(request);
     let observable = next.handle(request);
-    this.service.addLoader(new Promise(resolve => {
+    let promise = new Promise(resolve => {
       observable = observable.pipe(tap({
         next(value) {
           if (value instanceof HttpResponse) {
@@ -32,7 +33,9 @@ export class LoaderInterceptor implements HttpInterceptor {
           }
         }
       }))
-    }))
+    });
+    if (typeof context == "string") this.service.addLoader(promise, context);
+    else this.service.addLoader(promise);
     return observable;
   }
 }
