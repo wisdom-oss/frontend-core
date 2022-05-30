@@ -10,7 +10,7 @@ import {AppComponent} from "./app.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
-import {ErrorComponent} from "./error/error.component";
+import {ErrorComponent} from "./frame/error/error.component";
 import {FrameComponent} from "./frame/frame.component";
 import {SideBarComponent} from "./frame/side-bar/side-bar.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
@@ -19,6 +19,7 @@ import {CacheInterceptor} from "./cache.interceptor";
 import { LoaderComponent } from './frame/loader/loader.component';
 import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
 import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
+import {ErrorInterceptor} from "./frame/error/error.interceptor";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,11 @@ import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
     })
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

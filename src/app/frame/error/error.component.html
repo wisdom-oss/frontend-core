@@ -1,0 +1,56 @@
+<div>
+  <div
+    #error
+    [hidden]="!showError"
+    class="has-background-{{showType}}"
+    style="height: calc(100vh - 56px)"
+  >
+    <div
+      class="
+        is-flex
+        is-justify-content-center
+        is-align-items-center
+      "
+      style="height: 100%"
+    >
+      <div class="is-flex is-flex-direction-column is-align-items-center">
+        <p
+          class="has-text-black"
+          style="font-size: 7rem; font-weight: bold; margin-bottom: -2.5rem"
+        >
+          {{httpCode}}
+        </p>
+        <p
+          class="has-text-black"
+          style="font-size: 3rem; font-weight: bold"
+        >
+          {{httpError}}
+        </p>
+        <p
+          class="has-text-black"
+          style="font-weight: bold"
+        >
+          {{errorName}}
+        </p>
+        <p class="has-text-black mb-4">
+          {{errorDescription}}
+        </p>
+        <button class="button mb-4" (click)="goBack()">
+          <span class="icon">
+            <ion-icon name="arrow-undo"></ion-icon>
+          </span>
+          <span>Go Back</span>
+        </button>
+        <p
+          class="has-text-black"
+          style="font-size: 0.7rem"
+        >
+          {{errorCode}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div #content [hidden]="showError">
+    <ng-content></ng-content>
+  </div>
+</div>

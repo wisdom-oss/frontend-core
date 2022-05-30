@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
   UrlTree
 } from "@angular/router";
-import {Observable} from "rxjs";
+import {Observable, throwError} from "rxjs";
 
 import {AuthStorageService} from "./auth-storage.service";
 import {AuthService} from "./auth.service";
@@ -66,17 +66,6 @@ export class AuthGuard implements CanActivate {
         },
 
         error: errResponse => {
-          // token is invalid
-          if (errResponse.status !== 401) {
-            console.log(errResponse);
-            let errUrl = this.router.parseUrl(`error/${errResponse.status}`);
-            errUrl.queryParams = {message: errResponse.statusText};
-            // TODO: handle non 401 errors better than this component
-            subscriber.next(errUrl);
-            subscriber.complete();
-            return;
-          }
-
           /**
            * Small function to avoid code depletes.
            * Clears the auth storage and sends the user to the login page.

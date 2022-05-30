@@ -95,14 +95,16 @@
         class="column p-0"
         style="overflow-y: auto"
       >
-        <app-loader>
-          <div class="p-3" style="padding-bottom: 100px">
-            <div
-              style="margin-top: 0.75rem; padding-right: 0.8rem; padding-left: 0.8rem">
-              <router-outlet></router-outlet>
+        <app-error>
+          <app-loader>
+            <div class="p-3" style="padding-bottom: 100px">
+              <div
+                style="margin-top: 0.75rem; padding-right: 0.8rem; padding-left: 0.8rem">
+                <router-outlet></router-outlet>
+              </div>
             </div>
-          </div>
-        </app-loader>
+          </app-loader>
+        </app-error>
       </main>
       <aside
         *ngIf="!hideUserBar"
