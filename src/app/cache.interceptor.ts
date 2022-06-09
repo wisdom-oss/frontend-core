@@ -8,28 +8,51 @@ import {
 import {Observable, tap} from 'rxjs';
 import {USE_CACHE} from "common";
 
+/**
+ * Interceptor to handle cache-control behaviour via
+ * [ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) and
+ * [Last-Modified](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified)
+ * headers.
+ */
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
 
+  /** Map holding all ETags received from the server. */
   private eTagMap: Map<string, string> = new Map();
+  /** Map holding all timestamps sent by the server. */
   private lastModifiedMap: Map<string, string> = new Map();
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  /**
+   * Intercept requests to insert caching headers, if the context
+   * {@link USE_CACHE} is set.
+   * Will append `If-None-Match` and `Last-Modified-Since` if possible.
+   *
+   * @param request Any http request
+   * @param next The next interceptor or another request handler
+   */
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
+    // do not insert any cache headers if USE_CACHE is false
     if (!request.context.get(USE_CACHE)) return next.handle(request);
+
     let key = request.urlWithParams;
-    let cacheHeaders = new HttpHeaders();
-    if (this.eTagMap.has(key)) {
-      request.headers.set("If-None-Match", this.eTagMap.get(key)!);
-    }
-    if (this.lastModifiedMap.has(key)) {
-      request.headers.set("If-Modified_Since", this.lastModifiedMap.get(key)!);
-    }
+
+    let eTag = this.eTagMap.get(key);
+    if (eTag) request.headers.set("If-None-Match", eTag);
+
+    let lastModified = this.lastModifiedMap.get(key);
+    if (lastModified) request.headers.set("If-Modified-Since", lastModified);
+
     return next.handle(request.clone({
       headers: request.headers
     })).pipe(tap(event => {
       if (!(event instanceof HttpResponse)) return;
+
       let eTag = event.headers.get("ETag");
       if (eTag) this.eTagMap.set(key, eTag);
+
       let lastModified = event.headers.get("Last-Modified");
       if (lastModified) this.lastModifiedMap.set(key, lastModified);
     }));
