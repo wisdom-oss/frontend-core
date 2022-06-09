@@ -5,7 +5,7 @@ import {
   HttpParams
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {USE_API_URL} from "common";
+import {USE_API_URL, USE_CACHE} from "common";
 import {join} from "path-browserify";
 import {Observable} from "rxjs";
 
@@ -26,7 +26,7 @@ const httpOptions: Parameters<HttpClient["post"]>[2] = {
     "Content-Type": "application/x-www-form-urlencoded"
   }),
   responseType: "json",
-  context: new HttpContext().set(USE_API_URL, true)
+  context: new HttpContext().set(USE_API_URL, true).set(USE_CACHE, false)
 }
 
 /**
