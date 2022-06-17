@@ -7,8 +7,6 @@ import {FrameComponent} from "./frame/frame.component";
 import {ModuleProvider} from "./module-provider";
 import {LoaderGuard} from "./frame/loader/loader.guard";
 
-ModuleProvider.routes();
-
 const routes: Routes = [
   {
     path: "",
@@ -16,8 +14,7 @@ const routes: Routes = [
     canActivate: [AuthGuard, LoaderGuard],
     children: ModuleProvider.routes()
   },
-  {path: "login", component: LoginComponent, canActivate: [LoaderGuard]},
-  {path: "**", redirectTo: "error/404?message=Not%20Found"}
+  {path: "login", component: LoginComponent, canActivate: [LoaderGuard]}
 ];
 
 @NgModule({

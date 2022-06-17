@@ -26,6 +26,7 @@ export class ModuleProvider {
     for (let module of Object.values(modules)) {
       routes.push({
         path: module.wisdomInterface.path,
+        children: [{path: "**", component: module.wisdomInterface.entryComponent}],
         component: module.wisdomInterface.entryComponent,
         canActivate: [AuthGuard, LoaderGuard]
       });
