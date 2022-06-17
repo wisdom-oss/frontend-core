@@ -3,13 +3,14 @@ import {of, Observable} from "rxjs";
 
 import de_DELang from "./langs/de_DE";
 import en_USLang from "./langs/en_US";
+import {de_DELang as de_DELangCommon, en_USLang as en_USLangCommon} from "common";
 import {ModuleProvider} from "../module-provider";
 import {langs as sideBarLangs} from "../../../../../sidebar";
 
 /** The languages the loader provides. */
 let langs: any = {
-  de_DE: Object.assign({}, de_DELang, ModuleProvider.langs("de_DE")),
-  en_US: Object.assign({}, en_USLang, ModuleProvider.langs("en_US"))
+  de_DE: Object.assign({}, de_DELang, de_DELangCommon, ModuleProvider.langs("de_DE")),
+  en_US: Object.assign({}, en_USLang, en_USLangCommon, ModuleProvider.langs("en_US"))
 }
 
 for (let [lang, values] of Object.entries(sideBarLangs)) {
