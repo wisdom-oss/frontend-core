@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import {Location} from "@angular/common";
+import {Component, OnInit} from "@angular/core";
+
 import {ErrorService} from "./error.service";
 
 @Component({

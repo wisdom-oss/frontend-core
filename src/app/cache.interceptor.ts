@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
 import {
-  HttpRequest,
-  HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpHeaders, HttpResponse
-} from '@angular/common/http';
-import {Observable, tap} from 'rxjs';
+  HttpHandler,
+  HttpHeaders,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from "@angular/common/http";
+import {Injectable} from "@angular/core";
 import {USE_CACHE} from "common";
+import {tap, Observable} from "rxjs";
 
 /**
  * Interceptor to handle cache-control behaviour via

@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
   UrlTree
 } from "@angular/router";
-import {Observable, throwError} from "rxjs";
+import {throwError, Observable} from "rxjs";
 
 import {AuthStorageService} from "./auth-storage.service";
 import {AuthService} from "./auth.service";

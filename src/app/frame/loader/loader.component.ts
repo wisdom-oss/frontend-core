@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit} from "@angular/core";
+
 import {LoaderService} from "./loader.service";
 
 @Component({

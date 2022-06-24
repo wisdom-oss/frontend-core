@@ -1,15 +1,17 @@
-import {Injectable} from '@angular/core';
 import {
-  HttpErrorResponse,
+  HttpResponseBase,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest, HttpResponse,
-  HttpResponseBase
-} from '@angular/common/http';
-import {Observable, tap} from 'rxjs';
-import {LoaderService} from "./loader.service";
+  HttpRequest,
+  HttpErrorResponse,
+  HttpResponse
+} from "@angular/common/http";
+import {Injectable} from "@angular/core";
 import {USE_LOADER} from "common";
+import {tap, Observable} from "rxjs";
+
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
@@ -19,6 +21,7 @@ export class LoaderInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let context = request.context.get(USE_LOADER);
     if (!context) return next.handle(request);
+
     let observable = next.handle(request);
     let promise = new Promise(resolve => {
       observable = observable.pipe(tap({

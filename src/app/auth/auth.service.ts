@@ -5,7 +5,7 @@ import {
   HttpParams
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {USE_API_URL, USE_CACHE, USE_ERROR_CURTAIN} from "common";
+import {USE_CACHE, USE_API_URL, USE_ERROR_CURTAIN} from "common";
 import {join} from "path-browserify";
 import {Observable} from "rxjs";
 

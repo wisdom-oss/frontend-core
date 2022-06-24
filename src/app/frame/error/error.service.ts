@@ -1,6 +1,7 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
+import {EventEmitter, Injectable, Output} from "@angular/core";
+import {ActivatedRoute, Router, NavigationStart} from "@angular/router";
+
 import {Error} from "./error";
-import {ActivatedRoute, NavigationStart, Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'

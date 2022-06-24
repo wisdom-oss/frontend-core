@@ -1,9 +1,9 @@
 import {Routes} from "@angular/router";
 
 import {AuthGuard} from "./auth/auth.guard";
+import {LoaderGuard} from "./frame/loader/loader.guard";
 
 import * as modules from "../../../../modules";
-import {LoaderGuard} from "./frame/loader/loader.guard";
 
 /**
  * Class to provide data from the reexported wisdom modules.

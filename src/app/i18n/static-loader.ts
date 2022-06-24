@@ -1,9 +1,12 @@
 import {TranslateLoader} from "@ngx-translate/core";
+import {
+  de_DELang as de_DELangCommon,
+  en_USLang as en_USLangCommon
+} from "common";
 import {of, Observable} from "rxjs";
 
 import de_DELang from "./langs/de_DE";
 import en_USLang from "./langs/en_US";
-import {de_DELang as de_DELangCommon, en_USLang as en_USLangCommon} from "common";
 import {ModuleProvider} from "../module-provider";
 import {langs as sideBarLangs} from "../../../../../sidebar";
 

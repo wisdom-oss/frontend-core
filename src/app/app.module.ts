@@ -16,7 +16,7 @@ import {SideBarComponent} from "./frame/side-bar/side-bar.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
 import {StaticLoader} from "./i18n/static-loader";
 import {CacheInterceptor} from "./cache.interceptor";
-import { LoaderComponent } from './frame/loader/loader.component';
+import {LoaderComponent} from "./frame/loader/loader.component";
 import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
 import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 import {ErrorInterceptor} from "./frame/error/error.interceptor";
