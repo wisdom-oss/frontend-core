@@ -1,6 +1,6 @@
 import {ViewChild, Component, OnInit, ElementRef} from "@angular/core";
 import {NgForm} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 import {AuthService} from "../auth.service";
 import {AuthStorageService} from "../auth-storage.service";
@@ -25,11 +25,13 @@ export class LoginComponent {
    * @param authService Service to interact with the auth server
    * @param authStorage Service containing the tokens
    * @param router Router for routing the user after login
+   * @param route The current route
    */
   constructor(
     private authService: AuthService,
     private authStorage: AuthStorageService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   /**
@@ -50,7 +52,10 @@ export class LoginComponent {
         this.authStorage.scopes = response.scope;
         this.authStorage.expiresIn = response.expires_in;
         console.log("successfully logged in");
-        this.router.navigate([""], {replaceUrl: true}).catch(e => console.error(e));
+        let returnUrl = this.router.parseUrl(this.route.snapshot.queryParams["returnUrl"] ?? "");
+        let queryParams = returnUrl.queryParams;
+        let route = returnUrl.toString().split("?")[0];
+        this.router.navigate([route], {queryParams, replaceUrl: true}).catch(e => console.error(e));
       },
       error: errResponse => {
         let error;

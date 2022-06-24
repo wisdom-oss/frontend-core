@@ -51,6 +51,9 @@ export class AuthGuard implements CanActivate {
     // ignore login path per se
     if (route.url[0]?.path === "login") return true;
     let loginUrlTree = this.router.parseUrl("/login");
+    if (!state.url.includes("login")) {
+      loginUrlTree.queryParams = {returnUrl: state.url};
+    }
 
     // if no token is available the use can't be logged in
     let token = this.authStorage.accessToken;
