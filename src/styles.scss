@@ -29,3 +29,8 @@
     color: darken(white, 20);
   }
 }
+
+// disable hover text on ion icons
+ion-icon {
+  pointer-events: none;
+}
