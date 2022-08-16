@@ -14,7 +14,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, LoaderGuard],
     children: ModuleProvider.routes()
   },
-  {path: "login", component: LoginComponent, canActivate: [LoaderGuard]}
+  {path: "login", component: LoginComponent, canActivate: [LoaderGuard]},
+  {path: "**", redirectTo: ""}
 ];
 
 @NgModule({
