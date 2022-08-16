@@ -24,12 +24,11 @@ export class ModuleProvider {
   static routes(): Routes {
     let routes: Routes = [];
     for (let module of Object.values(modules)) {
-      routes.push({
-        path: module.wisdomInterface.path,
-        children: [{path: "**", component: module.wisdomInterface.entryComponent}],
-        component: module.wisdomInterface.entryComponent,
-        canActivate: [AuthGuard, LoaderGuard]
-      });
+      let insertRoute = module.wisdomInterface.route;
+      if (!insertRoute.canActivate) insertRoute.canActivate = [];
+      // TODO: add ScopeGuard here
+      insertRoute.canActivate.push(AuthGuard, LoaderGuard);
+      routes.push(insertRoute);
     }
     return routes;
   }
