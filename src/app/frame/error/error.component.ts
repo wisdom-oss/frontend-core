@@ -3,20 +3,34 @@ import {Component, OnInit} from "@angular/core";
 
 import {ErrorService} from "./error.service";
 
+/**
+ * Component covering the entire main container to display an error that has not
+ * been handled.
+ */
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html'
 })
 export class ErrorComponent {
 
+  /** Whether to show the component. */
   showError: boolean = false;
 
+  /** Http code of the error. */
   httpCode?: number | string;
+  /** Http code name of the error. */
   httpError?: string;
+  /** Internal error code. */
   errorCode?: string;
+  /** Internal error name. */
   errorName?: string;
+  /** Internal error description. */
   errorDescription?: string;
 
+  /**
+   * Utility function to return the bulma type name for certain http error
+   * codes.
+   */
   get showType(): string {
     let codeType = ("" + this.httpCode)[0];
     switch (codeType) {
@@ -26,6 +40,11 @@ export class ErrorComponent {
     }
   }
 
+  /**
+   * Constructor.
+   * @param location Location service to allow traversing the history
+   * @param service Error service collecting the errors
+   */
   constructor(
     private location: Location,
     private service: ErrorService
@@ -48,6 +67,7 @@ export class ErrorComponent {
       });
   }
 
+  /** Return one step in the history. */
   goBack() {
     this.location.back();
   }

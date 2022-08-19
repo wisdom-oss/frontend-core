@@ -10,12 +10,31 @@ import {catchError, throwError, Observable} from "rxjs";
 
 import {ErrorService} from "./error.service";
 
+/**
+ * Interceptor for http request.
+ * This one is set as the last element to capture http error that were not
+ * handled somewhere else.
+ *
+ * These unhandled errors will be passed to the {@link ErrorService}.
+ */
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
+  /**
+   * Constructor.
+   * @param service Error service to pass the errors into
+   */
   constructor(private service: ErrorService) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  /**
+   * Intercept all returning errors and pass them to the {@link ErrorService}.
+   * @param request Request to check
+   * @param next Next interceptor, usually none for this interceptor
+   */
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     let context = request.context.get(USE_ERROR_CURTAIN);
     if (!context) return next.handle(request);
 
