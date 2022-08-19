@@ -34,3 +34,17 @@
 ion-icon {
   pointer-events: none;
 }
+
+
+@each $name, $pair in $colors {
+  $color: nth($pair, 1);
+  .has-hover-text-#{$name}:hover {
+    color: $color !important;
+  }
+}
+
+@each $name, $shade in $shades {
+  .has-hover-text-#{$name}:hover {
+    color: $shade !important;
+  }
+}
