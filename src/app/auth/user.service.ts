@@ -30,6 +30,10 @@ export class UserService {
    */
   constructor(private http: HttpClient) {}
 
+  /**
+   * Helper function to generate the http options necessary for all requests.
+   * @private
+   */
   private static httpOptions(): Parameters<HttpClient["get"]>[1] {
     return {
       responseType: "json",
@@ -39,11 +43,27 @@ export class UserService {
     }
   }
 
+  /** Get all user accounts currently in the database. */
   getUsers() {
     return this.http.get(join(AUTH_API, "users"), UserService.httpOptions()) as
       Observable<{status: 200} & HttpResponse<GetUsers200>>;
   }
 
+  /**
+   * Create a new user account
+   *
+   * This will create a new user account.
+   * During the creation a user account must not use the same username
+   * (login name).
+   * All other properties may be not unique.
+   *
+   * @param firstName First name(s) of the person associated to the account
+   * @param lastName Last name(s) of the person associated to the account
+   * @param username Username for the login
+   * @param password The initial account password for this user
+   * @param scopes The scopes the user may use as OAuth2.0 scope string
+   * @param roles List of Role names which the user shall be associated with
+   */
   createUser(
     firstName: string,
     lastName: string,
@@ -67,6 +87,4 @@ export class UserService {
       {status: 409} & HttpResponse<PutUsers409>
     >;
   }
-
-
 }
