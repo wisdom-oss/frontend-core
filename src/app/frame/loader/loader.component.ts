@@ -32,6 +32,9 @@ export class LoaderComponent implements OnInit {
    */
   ngOnInit(): void {
     this.service.loading.subscribe(value => this.isLoading = value);
-    this.service.displayTexts.subscribe(values => this.displayTexts = values);
+    this.service.displayTexts.subscribe(
+      // this dedupes loader texts
+      values => this.displayTexts = [...new Set(values)]
+    );
   }
 }
