@@ -31,7 +31,6 @@ export class LoaderService {
 
   constructor(private injector: LoaderInjector) {
     this.injector.loaders.subscribe(([p, t]) => this.addLoader(p, t));
-    this.loading.subscribe(() => console.log(this.promises));
   }
 
   /** Texts to display on the component. */
