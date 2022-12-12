@@ -8,11 +8,18 @@ import {Injectable} from "@angular/core";
 import {tap, Observable} from "rxjs";
 
 import {AuthStorageService} from "./auth-storage.service";
+import {SEND_AUTH, USE_API_URL} from "common";
 
 /** Key for the token. */
 const TOKEN_HEADER_KEY = "Authorization";
 
-/** Interceptor to inject the authorization token into every request. */
+/**
+ * Interceptor to inject the authorization token into requests.
+ *
+ * Only requests with {@link SEND_AUTH} to `true` or {@link USE_API_URL} to
+ * `true` while {@link SEND_AUTH} is `undefined` will get the authorization
+ * header including the token.
+ */
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
@@ -31,6 +38,14 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
+    switch (request.context.get(SEND_AUTH)) {
+      case true: break; // allow
+      case false: return next.handle(request); // deny, pass to next handler
+      case undefined: // check for use api context
+        if (request.context.get(USE_API_URL)) break;
+        return next.handle(request);
+    }
+
     let authRequest = request;
     const token = this.authStorage.accessToken;
     if (token) {
