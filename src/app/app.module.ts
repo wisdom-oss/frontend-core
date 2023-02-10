@@ -20,6 +20,7 @@ import {LoaderComponent} from "./frame/loader/loader.component";
 import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
 import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 import {ErrorInterceptor} from "./frame/error/error.interceptor";
+import { AuthConfigModule } from './auth/auth-config.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {ErrorInterceptor} from "./frame/error/error.interceptor";
         provide: TranslateLoader,
         useClass: StaticLoader
       }
-    })
+    }),
+    AuthConfigModule
   ],
   providers: [
     {
