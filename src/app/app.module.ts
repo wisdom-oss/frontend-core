@@ -7,7 +7,6 @@ import {WisdomModule} from "common";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
-import {LoginComponent} from "./auth/login/login.component";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {ErrorComponent} from "./frame/error/error.component";
@@ -25,7 +24,6 @@ import { AuthConfigModule } from './auth/auth-config.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     FrameComponent,
     LangSelectorDirective,
     SideBarComponent,

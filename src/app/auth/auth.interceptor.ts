@@ -7,7 +7,6 @@ import {
 import {Injectable} from "@angular/core";
 import {tap, Observable} from "rxjs";
 
-import {AuthStorageService} from "./auth-storage.service";
 import {SEND_AUTH, USE_API_URL} from "common";
 
 /** Key for the token. */
@@ -25,9 +24,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
   /**
    * Constructor.
-   * @param authStorage The storage containing the tokens to inject
    */
-  constructor(private authStorage: AuthStorageService) {}
+  constructor() {}
 
   /**
    * Injects the token as Bearer authentication into a HttpRequest
@@ -46,14 +44,15 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(request);
     }
 
+    // TODO: update this request to use auth service data
     let authRequest = request;
-    const token = this.authStorage.accessToken;
-    if (token) {
-      authRequest = request.clone({
-        // this updates the header without removing every other header
-        headers: request.headers.set(TOKEN_HEADER_KEY, "Bearer " + token)
-      });
-    }
+    // const token = this.authStorage.accessToken;
+    // if (token) {
+    //   authRequest = request.clone({
+    //     // this updates the header without removing every other header
+    //     headers: request.headers.set(TOKEN_HEADER_KEY, "Bearer " + token)
+    //   });
+    // }
     return next.handle(authRequest).pipe(tap(event => {
       // TODO: handle if the event is 401
     }));
