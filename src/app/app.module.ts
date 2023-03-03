@@ -17,7 +17,6 @@ import {StaticLoader} from "./i18n/static-loader";
 import {CacheInterceptor} from "./cache.interceptor";
 import {LoaderComponent} from "./frame/loader/loader.component";
 import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
-import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 import {ErrorInterceptor} from "./frame/error/error.interceptor";
 import { AuthConfigModule } from './auth/auth-config.module';
 import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
@@ -72,12 +71,7 @@ import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
       provide: HTTP_INTERCEPTORS,
       useClass: CacheInterceptor,
       multi: true
-    },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: SanitizeUrlInterceptor,
-    //   multi: true
-    // }
+    }
   ],
   bootstrap: [AppComponent]
 })
