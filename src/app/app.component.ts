@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, HostListener, OnInit} from "@angular/core";
 import {Chart} from "chart.js";
 import AnnotationPlugin from "chartjs-plugin-annotation";
 import {Icon} from "leaflet";
@@ -15,6 +15,23 @@ export class AppComponent implements OnInit {
   title = "WISdoM-OSS";
 
   constructor(public oidcSecurityService: OidcSecurityService) {}
+
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent){
+    AppComponent.hideAutoHideElement(
+      document.getElementsByTagName("body")[0],
+      event.srcElement as HTMLElement
+    );
+  }
+
+  static hideAutoHideElement(element: HTMLElement, except: HTMLElement) {
+    if (!element.contains(except) && element.classList.contains("is-auto-hide")) {
+      element.classList.remove("is-active");
+    }
+    for (let child of (element as any)?.children) {
+      AppComponent.hideAutoHideElement(child, except);
+    }
+  }
 
   /**
    * On init this sets the Default image path for Leaflet.
