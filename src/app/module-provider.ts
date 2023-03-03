@@ -4,6 +4,7 @@ import {AuthGuard} from "./auth/auth.guard";
 import {LoaderGuard} from "./frame/loader/loader.guard";
 
 import * as modules from "../../../../modules";
+import {AutoLoginPartialRoutesGuard} from "angular-auth-oidc-client";
 
 /**
  * Class to provide data from the reexported wisdom modules.
@@ -27,7 +28,7 @@ export class ModuleProvider {
       let insertRoute = module.wisdomInterface.route;
       if (!insertRoute.canActivate) insertRoute.canActivate = [];
       // TODO: add ScopeGuard here
-      insertRoute.canActivate.push(LoaderGuard);
+      insertRoute.canActivate.push(AutoLoginPartialRoutesGuard, LoaderGuard);
       routes.push(insertRoute);
     }
     return routes;
