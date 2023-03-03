@@ -27,7 +27,7 @@ export class ModuleProvider {
       let insertRoute = module.wisdomInterface.route;
       if (!insertRoute.canActivate) insertRoute.canActivate = [];
       // TODO: add ScopeGuard here
-      insertRoute.canActivate.push(AuthGuard, LoaderGuard);
+      insertRoute.canActivate.push(LoaderGuard);
       routes.push(insertRoute);
     }
     return routes;

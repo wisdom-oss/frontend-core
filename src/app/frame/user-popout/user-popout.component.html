@@ -1,0 +1,41 @@
+<div class="dropdown is-right is-toggleable">
+  <div class="dropdown-trigger">
+    <div class="buttons">
+      <div
+        class="button is-rounded"
+        style="
+      background-image: url({{avatar}});
+      background-size: cover;
+    "
+      >
+      </div>
+    </div>
+  </div>
+  <div class="dropdown-menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item has-text-centered">
+        <p class="icon-text has-text-weight-bold">
+          <span *ngIf="isAdmin" class="icon"></span>
+          <span>{{name}}</span>
+          <span
+            *ngIf="isAdmin"
+            attr.data-tooltip="{{'core.frame.admin' | translate}}"
+            class="icon has-tooltip-arrow"
+          >
+            <ion-icon name="rocket"></ion-icon>
+          </span>
+        </p>
+        <p>{{username}}</p>
+      </div>
+      <hr class="dropdown-divider">
+      <a class="dropdown-item has-text-centered pr-5" (click)="logout()">
+        <span class="icon-text">
+          <span class="icon">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </span>
+          <span>{{"core.frame.logout" | translate}}</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

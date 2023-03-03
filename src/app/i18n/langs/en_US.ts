@@ -12,7 +12,7 @@ export default {
     frame: {
       account: "Account",
       logout: "Logout",
-      administration: "Administration",
+      admin: "Admin",
       userManagement: "User Management",
       permissions: "Permissions",
       roles: "Roles"

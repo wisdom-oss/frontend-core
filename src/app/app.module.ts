@@ -20,6 +20,7 @@ import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
 import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 import {ErrorInterceptor} from "./frame/error/error.interceptor";
 import { AuthConfigModule } from './auth/auth-config.module';
+import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthConfigModule } from './auth/auth-config.module';
     LangSelectorDirective,
     SideBarComponent,
     ErrorComponent,
-    LoaderComponent
+    LoaderComponent,
+    UserPopoutComponent
   ],
   imports: [
     WisdomModule,
@@ -46,36 +48,36 @@ import { AuthConfigModule } from './auth/auth-config.module';
     AuthConfigModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: BaseUrlInterceptor,
-      multi: true
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: ErrorInterceptor,
+    //   multi: true
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: LoaderInterceptor,
+    //   multi: true
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: BaseUrlInterceptor,
+    //   multi: true
+    // },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CacheInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: SanitizeUrlInterceptor,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: CacheInterceptor,
+    //   multi: true
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: SanitizeUrlInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

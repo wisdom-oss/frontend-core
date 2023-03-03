@@ -10,6 +10,7 @@
 @import "../../../node_modules/bulma/bulma";
 @import "../../../node_modules/bulma-prefers-dark/bulma-prefers-dark";
 @import "../../../node_modules/bulma-switch/src/sass/index";
+@import "../../../node_modules/@creativebulma/bulma-tooltip/src/sass/index";
 
 @media (prefers-color-scheme: light) {
   .is-hidden-light {

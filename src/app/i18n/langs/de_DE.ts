@@ -11,8 +11,8 @@ export default {
     },
     frame: {
       account: "Konto",
-      logout: "Logout",
-      administration: "Administration",
+      logout: "Abmelden",
+      admin: "Administrator",
       userManagement: "Nutzerverwaltung",
       permissions: "Berechtigungen",
       roles: "Rollen"
