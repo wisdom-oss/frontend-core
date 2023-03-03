@@ -37,13 +37,4 @@ export class FrameComponent {
     this.settingsStorage.hideSidebar = setting;
   }
 
-  /** Get hide user bar setting. */
-  get hideUserBar() {
-    return this.settingsStorage.hideUserBar || false;
-  }
-  /** Set hide user bar setting. */
-  set hideUserBar(setting: boolean) {
-    this.settingsStorage.hideUserBar = setting;
-  }
-
 }
