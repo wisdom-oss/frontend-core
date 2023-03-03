@@ -1,5 +1,5 @@
-<div class="dropdown is-right is-toggleable is-auto-hide">
-  <div class="dropdown-trigger">
+<div class="dropdown is-right is-auto-hide">
+  <div class="dropdown-trigger" (click)="toggle()">
     <div class="buttons">
       <div
         class="button is-rounded"
@@ -14,9 +14,9 @@
   <div class="dropdown-menu">
     <div class="dropdown-content">
       <div class="dropdown-item has-text-centered">
-        <p class="icon-text has-text-weight-bold">
+        <p class="icon-text has-text-weight-bold is-flex-wrap-nowrap">
           <span *ngIf="isAdmin" class="icon"></span>
-          <span>{{name}}</span>
+          <span style="white-space: nowrap">{{name}}</span>
           <span
             *ngIf="isAdmin"
             attr.data-tooltip="{{'core.frame.admin' | translate}}"

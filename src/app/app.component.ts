@@ -17,20 +17,12 @@ export class AppComponent implements OnInit {
   constructor(public oidcSecurityService: OidcSecurityService) {}
 
   @HostListener('click', ['$event'])
-  onClick(event: MouseEvent){
-    AppComponent.hideAutoHideElement(
+  onClick(event: MouseEvent) {
+    let srcElement = event.srcElement as HTMLElement;
+    hideAutoHideElement(
       document.getElementsByTagName("body")[0],
-      event.srcElement as HTMLElement
+      srcElement
     );
-  }
-
-  static hideAutoHideElement(element: HTMLElement, except: HTMLElement) {
-    if (!element.contains(except) && element.classList.contains("is-auto-hide")) {
-      element.classList.remove("is-active");
-    }
-    for (let child of (element as any)?.children) {
-      AppComponent.hideAutoHideElement(child, except);
-    }
   }
 
   /**
@@ -42,5 +34,14 @@ export class AppComponent implements OnInit {
     Icon.Default.imagePath = "assets/leaflet/images/";
     Chart.register(AnnotationPlugin);
     this.oidcSecurityService.checkAuth().subscribe();
+  }
+}
+
+function hideAutoHideElement(element: HTMLElement, except: HTMLElement) {
+  if (!element.contains(except) && element.classList.contains("is-auto-hide")) {
+    element.classList.remove("is-active");
+  }
+  for (let child of (element as any)?.children) {
+    hideAutoHideElement(child, except);
   }
 }

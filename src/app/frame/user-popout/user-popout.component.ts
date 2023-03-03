@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {OidcSecurityService} from "angular-auth-oidc-client";
 import {TranslateService} from "@ngx-translate/core";
 import {AuthentikService} from "../../auth/authentik/authentik.service";
@@ -15,6 +15,7 @@ export class UserPopoutComponent implements OnInit {
   isAdmin: boolean = false;
 
   constructor(
+    public elementRef: ElementRef,
     public oidcSecurityService: OidcSecurityService,
     public authentik: AuthentikService
   ) {}
@@ -32,6 +33,15 @@ export class UserPopoutComponent implements OnInit {
 
   logout(): void {
     this.oidcSecurityService.logoff().subscribe(result => console.log(result));
+  }
+
+  toggle(): void {
+    this
+      .elementRef
+      .nativeElement
+      .querySelector(".dropdown")
+      .classList
+      .toggle("is-active");
   }
 
 }
