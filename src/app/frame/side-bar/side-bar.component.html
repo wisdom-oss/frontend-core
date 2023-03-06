@@ -1,6 +1,6 @@
 <ng-container *ngFor="let label of sideBar">
   <div class="menu-label">
-    <span class="icon-text">
+    <span class="icon-text is-flex-wrap-nowrap">
       <span *ngIf="label[1]" class="icon">
         <ion-icon [attr.name]=label[1]></ion-icon>
       </span>
@@ -11,7 +11,7 @@
   <ul class="menu-list">
     <li *ngFor="let entry of label[2]">
       <a *ngIf="entry[2]" [routerLink]="entry[2]">
-        <span class="icon-text">
+        <span class="icon-text is-flex-wrap-nowrap">
           <span *ngIf="entry[1]" class="icon">
             <ion-icon [attr.name]=entry[1]></ion-icon>
           </span>
@@ -19,7 +19,7 @@
         </span>
       </a>
       <a *ngIf="!entry[2]">
-        <span class="icon-text">
+        <span class="icon-text is-flex-wrap-nowrap">
           <span *ngIf="entry[1]" class="icon">
             <ion-icon [attr.name]=entry[1]></ion-icon>
           </span>
