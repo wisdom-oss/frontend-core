@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {authConfig} from "../../../../../../auth";
+import {authConfig} from "../../../../../../wisdom.config";
 import {HttpClient, HttpContext, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";

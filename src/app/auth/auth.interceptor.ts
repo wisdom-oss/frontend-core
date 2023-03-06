@@ -8,7 +8,7 @@ import {Injectable, isDevMode, OnInit} from "@angular/core";
 import {tap, Observable, startWith, first, switchMap} from "rxjs";
 
 import {SEND_AUTH, USE_API_URL} from "common";
-import {authConfig} from "../../../../../auth";
+import {authConfig} from "../../../../../wisdom.config";
 import {OidcSecurityService} from "angular-auth-oidc-client";
 
 /** Key for the token. */

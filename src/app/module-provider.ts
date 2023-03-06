@@ -3,7 +3,7 @@ import {Routes} from "@angular/router";
 import {AuthGuard} from "./auth/auth.guard";
 import {LoaderGuard} from "./frame/loader/loader.guard";
 
-import * as modules from "../../../../modules";
+import * as modules from "../../../../wisdom.modules";
 import {AutoLoginPartialRoutesGuard} from "angular-auth-oidc-client";
 
 /**

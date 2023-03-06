@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 
-import {sidebar} from "../../../../../../sidebar";
+import {sidebar} from "../../../../../../wisdom.config";
 
 /** The component displaying the sidebar. */
 @Component({

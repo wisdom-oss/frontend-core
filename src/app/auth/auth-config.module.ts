@@ -1,6 +1,6 @@
 import {NgModule, isDevMode, Injector} from '@angular/core';
 import {AuthModule} from 'angular-auth-oidc-client';
-import {authConfig} from "../../../../../auth";
+import {authConfig} from "../../../../../wisdom.config";
 import {CallbackComponent} from './callback/callback.component';
 import {Router} from "@angular/router";
 import {WisdomModule} from "common";
