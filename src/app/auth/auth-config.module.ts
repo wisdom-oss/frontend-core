@@ -3,6 +3,8 @@ import {AuthModule} from 'angular-auth-oidc-client';
 import {authConfig} from "../../../../../auth";
 import {CallbackComponent} from './callback/callback.component';
 import {Router} from "@angular/router";
+import {WisdomModule} from "common";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [AuthModule.forRoot({
@@ -17,7 +19,7 @@ import {Router} from "@angular/router";
       renewUserInfoAfterTokenRenew: true,
       scope: "openid profile email goauthentik.io/api"
     }, authConfig)
-  })],
+  }), WisdomModule, TranslateModule],
   exports: [AuthModule],
   declarations: [
     CallbackComponent

@@ -16,6 +16,11 @@ export default {
       userManagement: "Nutzerverwaltung",
       permissions: "Berechtigungen",
       roles: "Rollen"
+    },
+    callback: {
+      willRedirect: "Wir leiten sie gleich weiter",
+      notWorking: "Falls das nicht funktioniert:",
+      backToHome: "Zurück zur Startseite"
     }
   }
 }

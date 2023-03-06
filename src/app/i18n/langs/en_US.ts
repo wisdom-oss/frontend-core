@@ -16,6 +16,11 @@ export default {
       userManagement: "User Management",
       permissions: "Permissions",
       roles: "Roles"
+    },
+    callback: {
+      willRedirect: "Redirecting you...",
+      notWorking: "If that is not working:",
+      backToHome: "Back to Home"
     }
   }
 };
