@@ -20,6 +20,7 @@ import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
 import {ErrorInterceptor} from "./frame/error/error.interceptor";
 import { AuthConfigModule } from './auth/auth-config.module';
 import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
+import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,11 @@ import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CacheInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SanitizeUrlInterceptor,
       multi: true
     }
   ],
