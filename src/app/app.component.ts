@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     Icon.Default.imagePath = "assets/leaflet/images/";
     Chart.register(AnnotationPlugin);
-    this.oidcSecurityService.checkAuth().subscribe();
   }
 }
 
