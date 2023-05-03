@@ -1,8 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 
-import {AuthService} from "../auth/auth.service";
-import {AuthStorageService} from "../auth/auth-storage.service";
 import {SettingsStorageService} from "../settings-storage.service";
 
 // TODO: add further nesting - https://bulma.io/documentation/components/menu/
@@ -26,8 +24,6 @@ export class FrameComponent {
    * @param settingsStorage Storage of the settings
    */
   constructor(
-    private authService: AuthService,
-    private authStorage: AuthStorageService,
     private router: Router,
     private settingsStorage: SettingsStorageService
   ) {}
@@ -39,24 +35,6 @@ export class FrameComponent {
   /** Set hide sidebar setting. */
   set hideSidebar(setting: boolean) {
     this.settingsStorage.hideSidebar = setting;
-  }
-
-  /** Get hide user bar setting. */
-  get hideUserBar() {
-    return this.settingsStorage.hideUserBar || false;
-  }
-  /** Set hide user bar setting. */
-  set hideUserBar(setting: boolean) {
-    this.settingsStorage.hideUserBar = setting;
-  }
-
-  /** Log the user out and bring the user to the login page. */
-  logout() {
-    this.authService.logout(this.authStorage.accessToken!).subscribe(() => {
-      this.authStorage.clear();
-      this.router.navigate(["login"], {replaceUrl: true})
-        .catch(e => console.error(e));
-    });
   }
 
 }

@@ -8,7 +8,7 @@ import {of, Observable} from "rxjs";
 import de_DELang from "./langs/de_DE";
 import en_USLang from "./langs/en_US";
 import {ModuleProvider} from "../module-provider";
-import {langs as sideBarLangs} from "../../../../../sidebar";
+import {langs as sideBarLangs} from "../../../../../wisdom.config";
 
 /** The languages the loader provides. */
 let langs: any = {

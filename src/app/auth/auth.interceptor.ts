@@ -4,11 +4,12 @@ import {
   HttpInterceptor,
   HttpRequest
 } from "@angular/common/http";
-import {Injectable} from "@angular/core";
-import {tap, Observable} from "rxjs";
+import {Injectable, isDevMode, OnInit} from "@angular/core";
+import {tap, Observable, startWith, first, switchMap} from "rxjs";
 
-import {AuthStorageService} from "./auth-storage.service";
 import {SEND_AUTH, USE_API_URL} from "common";
+import {authConfig} from "../../../../../wisdom.config";
+import {OidcSecurityService} from "angular-auth-oidc-client";
 
 /** Key for the token. */
 const TOKEN_HEADER_KEY = "Authorization";
@@ -25,9 +26,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
   /**
    * Constructor.
-   * @param authStorage The storage containing the tokens to inject
    */
-  constructor(private authStorage: AuthStorageService) {}
+  constructor(public oidc: OidcSecurityService) {}
 
   /**
    * Injects the token as Bearer authentication into a HttpRequest
@@ -38,6 +38,8 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
+    let requestUpdate: Parameters<typeof request.clone>[0] = {};
+
     switch (request.context.get(SEND_AUTH)) {
       case true: break; // allow
       case false: return next.handle(request); // deny, pass to next handler
@@ -46,16 +48,16 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(request);
     }
 
-    let authRequest = request;
-    const token = this.authStorage.accessToken;
-    if (token) {
-      authRequest = request.clone({
-        // this updates the header without removing every other header
-        headers: request.headers.set(TOKEN_HEADER_KEY, "Bearer " + token)
-      });
-    }
-    return next.handle(authRequest).pipe(tap(event => {
-      // TODO: handle if the event is 401
+    return this.oidc.getAccessToken().pipe(first()).pipe(switchMap(token => {
+      if (token) {
+        request = request.clone({
+          // this updates the header without removing every other header
+          headers: request.headers.set(TOKEN_HEADER_KEY, "Bearer " + token)
+        })
+      }
+      return next.handle(request).pipe(tap(event => {
+        // TODO: handle if the event is 401
+      }));
     }));
   }
 }

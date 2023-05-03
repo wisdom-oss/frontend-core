@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-toggleable">
+          <div class="navbar-item has-dropdown is-toggleable is-auto-hide">
             <div class="navbar-link">
               <span class="icon">
                 <ion-icon name="language"></ion-icon>
@@ -72,13 +72,7 @@
             </div>
           </div>
           <div class="navbar-item">
-            <div class="buttons">
-              <div class="button" (click)="hideUserBar = !hideUserBar">
-                <span class="icon">
-                  <ion-icon name="person-circle"></ion-icon>
-                </span>
-              </div>
-            </div>
+            <app-user-popout></app-user-popout>
           </div>
         </div>
       </div>
@@ -106,87 +100,6 @@
           </app-loader>
         </app-error>
       </main>
-      <aside
-        *ngIf="!hideUserBar"
-        class="column is-2 box p-5"
-        style="margin-top: -0.75rem"
-      >
-        <div class="is-flex is-flex-direction-column"
-             style="height: calc(100vh - 80px)">
-          <p class="menu-label">{{"core.frame.account" | translate}}</p>
-          <ul class="menu-list">
-            <li>
-              <a (click)="logout()">
-                <span class="icon-text">
-                  <span class="icon">
-                    <ion-icon name="log-out"></ion-icon>
-                  </span>
-                  <span>
-                    {{"core.frame.logout" | translate}}
-                  </span>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <p class="menu-label">{{"core.frame.administration" | translate}}</p>
-          <ul class="menu-list is-flex-grow-1">
-            <li>
-              <a>
-                <span class="icon-text">
-                  <span class="icon">
-                    <ion-icon name="person"></ion-icon>
-                  </span>
-                  <span>
-                    {{"core.frame.userManagement" | translate}}
-                  </span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon-text">
-                  <span class="icon">
-                    <ion-icon name="key"></ion-icon>
-                  </span>
-                  <span>
-                    {{"core.frame.permissions" | translate}}
-                  </span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon-text">
-                  <span class="icon">
-                    <ion-icon name="id-card"></ion-icon>
-                  </span>
-                  <span>
-                    {{"core.frame.roles" | translate}}
-                  </span>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <div class="container is-align-self-flex-end is-flex-grow-0">
-            <a href="https://bulma.io" class="" target="_blank">
-              <img
-                class="is-hidden-light"
-                src="https://bulma.io/images/made-with-bulma--semiwhite.png"
-                alt="Made with Bulma"
-                width="128"
-                height="24"
-              >
-              <img
-                class="is-hidden-dark"
-                src="https://bulma.io/images/made-with-bulma--semiblack.png"
-                alt="Made with Bulma"
-                width="128"
-                height="24"
-              >
-            </a>
-          </div>
-        </div>
-      </aside>
     </div>
   </div>
 </div>

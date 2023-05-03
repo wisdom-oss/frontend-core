@@ -7,7 +7,6 @@ import {WisdomModule} from "common";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
-import {LoginComponent} from "./auth/login/login.component";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
 import {ErrorComponent} from "./frame/error/error.component";
@@ -18,18 +17,20 @@ import {StaticLoader} from "./i18n/static-loader";
 import {CacheInterceptor} from "./cache.interceptor";
 import {LoaderComponent} from "./frame/loader/loader.component";
 import {LoaderInterceptor} from "./frame/loader/loader.interceptor";
-import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 import {ErrorInterceptor} from "./frame/error/error.interceptor";
+import { AuthConfigModule } from './auth/auth-config.module';
+import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
+import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     FrameComponent,
     LangSelectorDirective,
     SideBarComponent,
     ErrorComponent,
-    LoaderComponent
+    LoaderComponent,
+    UserPopoutComponent
   ],
   imports: [
     WisdomModule,
@@ -43,7 +44,8 @@ import {ErrorInterceptor} from "./frame/error/error.interceptor";
         provide: TranslateLoader,
         useClass: StaticLoader
       }
-    })
+    }),
+    AuthConfigModule
   ],
   providers: [
     {
