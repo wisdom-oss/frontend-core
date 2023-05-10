@@ -47,7 +47,9 @@ export class ErrorInterceptor implements HttpInterceptor {
             httpError: requestError.error.httpError ?? requestError.statusText,
             error: requestError.error.error,
             errorName: requestError.error.errorName ?? requestError.name,
-            errorDescription: requestError.error.errorDescription ?? requestError.message
+            errorDescription: requestError.error.errorDescription ??
+              requestError.error.message ??
+              requestError.message
           });
         }
         return throwError(() => new Error(requestError));
