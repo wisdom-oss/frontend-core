@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Error} from "./error";
 import {ErrorService} from "./error.service";
 
@@ -9,6 +9,9 @@ import {ErrorService} from "./error.service";
 })
 export class ErrorToastComponent implements OnInit {
 
+  @ViewChild("toasts")
+  container!: ElementRef<HTMLDivElement>;
+
   errors: Map<number, Error> = new Map();
   private errorCounter = 0;
 
@@ -16,7 +19,16 @@ export class ErrorToastComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.toastError.subscribe(next => {
-      this.errors.set(this.errorCounter++, next);
+      let current = this.errorCounter++;
+      this.errors.set(current, next);
+      let toast = this.container.nativeElement.querySelector(`[data-toast-id="${current}"]`);
+      setTimeout(() => toast?.classList.remove("fade-in"), 300);
+      setTimeout(() => {
+        toast = this.container.nativeElement.querySelector(`[data-toast-id="${current}"]`);
+        if (!toast) return;
+        toast.classList.add("fade-out");
+        setTimeout(() => this.errors.delete(current), 350);
+      }, 15000);
     });
   }
 

@@ -1,6 +1,10 @@
 <div>
-  <div class="toast-container">
-    <div class="message {{displayType(error.value)}} m-2 toast" *ngFor="let error of errors | keyvalue">
+  <div class="toast-container" #toasts>
+    <div
+      class="message {{displayType(error.value)}} m-2 toast fade-in"
+      *ngFor="let error of errors | keyvalue"
+      [attr.data-toast-id]="error.key"
+    >
       <div class="message-header is-4">
         <p>[{{error.value.httpCode}}] {{error.value.httpError}}</p>
         <button class="delete" (click)="errors.delete(error.key)"></button>
