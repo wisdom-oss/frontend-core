@@ -21,6 +21,7 @@ import {ErrorInterceptor} from "./frame/error/error.interceptor";
 import { AuthConfigModule } from './auth/auth-config.module';
 import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
 import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
         useClass: StaticLoader
       }
     }),
-    AuthConfigModule
+    AuthConfigModule,
+    NgOptimizedImage
   ],
   providers: [
     {
