@@ -41,7 +41,6 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError(requestError => {
         if (!requestError.ok) {
-          console.log(requestError);
           this.service.throwError({
             httpCode: requestError.error.httpCode ?? requestError.status,
             httpError: requestError.error.httpError ?? requestError.statusText,
@@ -52,7 +51,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               requestError.message
           }, context);
         }
-        return throwError(() => new Error(requestError));
+        return throwError(() => requestError);
       })
     )
   }
