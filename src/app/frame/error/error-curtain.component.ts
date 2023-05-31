@@ -49,7 +49,7 @@ export class ErrorCurtainComponent {
     private location: Location,
     private service: ErrorService
   ) {
-    this.service.errorPresent.subscribe(
+    this.service.curtainErrorPresent.subscribe(
       val => {
         if (val) {
           this.showError = true;

@@ -1,0 +1,15 @@
+<div>
+  <div class="toast-container">
+    <div class="message {{displayType(error.value)}} m-2" *ngFor="let error of errors | keyvalue">
+      <div class="message-header is-4">
+        <p>[{{error.value.httpCode}}] {{error.value.httpError}}</p>
+        <button class="delete" (click)="errors.delete(error.key)"></button>
+      </div>
+      <div class="message-body">
+        <p>{{error.value.errorDescription}}</p>
+        <p class="has-text-right is-size-7 mt-2">{{error.value.errorName}}</p>
+      </div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

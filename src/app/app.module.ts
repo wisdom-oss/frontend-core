@@ -21,6 +21,7 @@ import {ErrorInterceptor} from "./frame/error/error.interceptor";
 import { AuthConfigModule } from './auth/auth-config.module';
 import { UserPopoutComponent } from './frame/user-popout/user-popout.component';
 import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
+import { ErrorToastComponent } from './frame/error/error-toast.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
     SideBarComponent,
     ErrorCurtainComponent,
     LoaderComponent,
-    UserPopoutComponent
+    UserPopoutComponent,
+    ErrorToastComponent
   ],
   imports: [
     WisdomModule,

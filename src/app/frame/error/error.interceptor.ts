@@ -5,7 +5,7 @@ import {
   HttpRequest
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {USE_ERROR_CURTAIN} from "common";
+import {USE_ERROR_HANDLER} from "common";
 import {catchError, throwError, Observable} from "rxjs";
 
 import {ErrorService} from "./error.service";
@@ -35,8 +35,8 @@ export class ErrorInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    let context = request.context.get(USE_ERROR_CURTAIN);
-    if (!context) return next.handle(request);
+    let context = request.context.get(USE_ERROR_HANDLER);
+    if (context === USE_ERROR_HANDLER.handler.CUSTOM) return next.handle(request);
 
     return next.handle(request).pipe(
       catchError(requestError => {
@@ -50,7 +50,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             errorDescription: requestError.error.errorDescription ??
               requestError.error.message ??
               requestError.message
-          });
+          }, context);
         }
         return throwError(() => new Error(requestError));
       })
