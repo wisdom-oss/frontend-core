@@ -61,6 +61,7 @@ export class LoaderService {
     }
     this._loading.next(true);
     toResolve
+      .catch(() => {})
       .then(() => this.promises.delete(toResolve))
       .then(() => this._displayTexts.delete(toResolve))
       .then(() => this.displayTextSubject.next(Array.from(this._displayTexts.values())))

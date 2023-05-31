@@ -41,9 +41,10 @@ export class LoaderInterceptor implements HttpInterceptor {
     if (!context) return next.handle(request);
 
     let observable = next.handle(request);
-    let promise = firstValueFrom(observable);
+    let resolver: () => void;
+    let promise = new Promise<void>(resolve => resolver = resolve);
     if (typeof context == "string") this.service.addLoader(promise, context);
     else this.service.addLoader(promise);
-    return observable;
+    return observable.pipe(tap({finalize: resolver!}));
   }
 }
