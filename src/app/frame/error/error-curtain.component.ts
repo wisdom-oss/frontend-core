@@ -8,10 +8,10 @@ import {ErrorService} from "./error.service";
  * been handled.
  */
 @Component({
-  selector: 'app-error',
-  templateUrl: './error.component.html'
+  selector: 'app-error-curtain',
+  templateUrl: './error-curtain.component.html'
 })
-export class ErrorComponent {
+export class ErrorCurtainComponent {
 
   /** Whether to show the component. */
   showError: boolean = false;

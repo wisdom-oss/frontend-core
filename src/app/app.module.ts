@@ -9,7 +9,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {BaseUrlInterceptor} from "./base-url.interceptor";
-import {ErrorComponent} from "./frame/error/error.component";
+import {ErrorCurtainComponent} from "./frame/error/error-curtain.component";
 import {FrameComponent} from "./frame/frame.component";
 import {SideBarComponent} from "./frame/side-bar/side-bar.component";
 import {LangSelectorDirective} from "./i18n/lang-selector.directive";
@@ -28,7 +28,7 @@ import {SanitizeUrlInterceptor} from "./sanitize-url.interceptor";
     FrameComponent,
     LangSelectorDirective,
     SideBarComponent,
-    ErrorComponent,
+    ErrorCurtainComponent,
     LoaderComponent,
     UserPopoutComponent
   ],
