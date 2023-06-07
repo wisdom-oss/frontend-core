@@ -8,10 +8,10 @@ import {ErrorService} from "./error.service";
  * been handled.
  */
 @Component({
-  selector: 'app-error',
-  templateUrl: './error.component.html'
+  selector: 'app-error-curtain',
+  templateUrl: './error-curtain.component.html'
 })
-export class ErrorComponent {
+export class ErrorCurtainComponent {
 
   /** Whether to show the component. */
   showError: boolean = false;
@@ -49,7 +49,7 @@ export class ErrorComponent {
     private location: Location,
     private service: ErrorService
   ) {
-    this.service.errorPresent.subscribe(
+    this.service.curtainErrorPresent.subscribe(
       val => {
         if (val) {
           this.showError = true;

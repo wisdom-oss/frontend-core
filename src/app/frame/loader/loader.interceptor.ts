@@ -9,7 +9,7 @@ import {
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {USE_LOADER} from "common";
-import {tap, Observable} from "rxjs";
+import {tap, Observable, firstValueFrom} from "rxjs";
 
 import {LoaderService} from "./loader.service";
 
@@ -41,22 +41,10 @@ export class LoaderInterceptor implements HttpInterceptor {
     if (!context) return next.handle(request);
 
     let observable = next.handle(request);
-    let promise = new Promise(resolve => {
-      observable = observable.pipe(tap({
-        next(value) {
-          if (value instanceof HttpResponse) {
-            return resolve(value);
-          }
-        },
-        error(err) {
-          if (err instanceof HttpErrorResponse) {
-            return resolve(err);
-          }
-        }
-      }))
-    });
+    let resolver: () => void;
+    let promise = new Promise<void>(resolve => resolver = resolve);
     if (typeof context == "string") this.service.addLoader(promise, context);
     else this.service.addLoader(promise);
-    return observable;
+    return observable.pipe(tap({finalize: resolver!}));
   }
 }
