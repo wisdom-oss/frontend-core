@@ -1,10 +1,5 @@
 import {Injectable} from "@angular/core";
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree, CanActivateChild
-} from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from "@angular/router";
 import {Observable} from "rxjs";
 
 import {LoaderService} from "./loader.service";
@@ -16,7 +11,7 @@ import {LoaderService} from "./loader.service";
 @Injectable({
   providedIn: 'root'
 })
-export class LoaderGuard implements CanActivate, CanActivateChild {
+export class LoaderGuard  {
 
   /**
    * Constructor.
