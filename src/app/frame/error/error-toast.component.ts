@@ -36,7 +36,7 @@ export class ErrorToastComponent implements OnInit {
     let firstDigit = ("" + error.httpCode)[0];
     switch (firstDigit) {
       case "5": return "is-danger";
-      case "4": return "is-warn";
+      case "4": return "is-warning";
       default: return "is-info";
     }
   }
