@@ -51,3 +51,15 @@ ion-icon {
     color: $shade !important;
   }
 }
+
+// Re-exports bulma colors as css variables to be accessible via JS
+:root {
+  --bulma-primary-primary: #{$primary};
+  --bulma-primary-link: #{$link};
+  --bulma-primary-info: #{$info};
+  --bulma-primary-success: #{$success};
+  --bulma-primary-warning: #{$warning};
+  --bulma-primary-danger: #{$danger};
+  --bulma-primary-dark: #{$dark};
+  --bulma-primary-text: #{$text};
+}
