@@ -3,6 +3,9 @@ import {Chart} from "chart.js";
 import AnnotationPlugin from "chartjs-plugin-annotation";
 import {Icon} from "leaflet";
 import {OidcSecurityService} from "angular-auth-oidc-client";
+import {Title} from "@angular/platform-browser";
+
+import * as wisdomConfig from "../../../../wisdom.config";
 
 /** Component of the app, the main entry point for angular. */
 @Component({
@@ -14,7 +17,12 @@ export class AppComponent implements OnInit {
   /** The title of the website. */
   title = "WISdoM-OSS";
 
-  constructor(public oidcSecurityService: OidcSecurityService) {}
+  constructor(
+    public oidcSecurityService: OidcSecurityService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle(wisdomConfig.name);
+  }
 
   @HostListener('click', ['$event'])
   onClick(event: MouseEvent) {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 
+import * as wisdomConfig from "../../../../../wisdom.config";
 import {SettingsStorageService} from "../settings-storage.service";
 
 // TODO: add further nesting - https://bulma.io/documentation/components/menu/
@@ -15,6 +16,8 @@ import {SettingsStorageService} from "../settings-storage.service";
   templateUrl: "./frame.component.html"
 })
 export class FrameComponent {
+
+  name = wisdomConfig.name;
 
   /**
    * Constructor.
