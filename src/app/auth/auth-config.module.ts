@@ -1,10 +1,11 @@
-import {NgModule, isDevMode, Injector} from '@angular/core';
-import {AuthModule} from 'angular-auth-oidc-client';
-import {authConfig} from "../../../../../wisdom.config";
-import {CallbackComponent} from './callback/callback.component';
+import {isDevMode, Injector, NgModule} from "@angular/core";
 import {Router} from "@angular/router";
-import {WisdomModule} from "common";
 import {TranslateModule} from "@ngx-translate/core";
+import {AuthModule} from "angular-auth-oidc-client";
+import {WisdomModule} from "common";
+
+import {CallbackComponent} from "./callback/callback.component";
+import {authConfig} from "../../../../../wisdom.config";
 
 @NgModule({
   imports: [AuthModule.forRoot({

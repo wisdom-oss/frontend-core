@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import {authConfig} from "../../../../../../wisdom.config";
 import {HttpClient, HttpContext, HttpHeaders} from "@angular/common/http";
+import {Injectable} from "@angular/core";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs";
-import {core} from "./types";
 import {SEND_AUTH} from "common";
+import {Observable} from "rxjs";
+
+import {core} from "./types";
+import {authConfig} from "../../../../../../wisdom.config";
 
 const API_URL = authConfig.authority.split("/application/o/")[0] + "/api/v3/";
 

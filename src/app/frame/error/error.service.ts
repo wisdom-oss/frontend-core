@@ -1,8 +1,8 @@
 import {EventEmitter, Injectable, Output} from "@angular/core";
 import {ActivatedRoute, Router, NavigationStart} from "@angular/router";
+import {USE_ERROR_HANDLER} from "common";
 
 import {Error} from "./error";
-import {USE_ERROR_HANDLER} from "common";
 
 /** Error service for collecting errors from the {@link ErrorInterceptor}. */
 @Injectable({

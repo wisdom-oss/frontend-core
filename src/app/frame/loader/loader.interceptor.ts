@@ -9,7 +9,7 @@ import {
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {USE_LOADER} from "common";
-import {tap, Observable, firstValueFrom} from "rxjs";
+import {firstValueFrom, tap, Observable} from "rxjs";
 
 import {LoaderService} from "./loader.service";
 

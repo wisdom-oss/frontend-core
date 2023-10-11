@@ -1,4 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ViewChild, Component, OnInit, ElementRef} from "@angular/core";
+
 import {Error} from "./error";
 import {ErrorService} from "./error.service";
 

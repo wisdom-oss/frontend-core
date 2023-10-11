@@ -1,6 +1,7 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
-import {OidcSecurityService} from "angular-auth-oidc-client";
+import {Component, OnInit, ElementRef} from "@angular/core";
 import {TranslateService} from "@ngx-translate/core";
+import {OidcSecurityService} from "angular-auth-oidc-client";
+
 import {AuthentikService} from "../../auth/authentik/authentik.service";
 
 @Component({

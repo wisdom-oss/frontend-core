@@ -1,9 +1,9 @@
-import {Component, HostListener, OnInit} from "@angular/core";
+import {Component, OnInit, HostListener} from "@angular/core";
+import {Title} from "@angular/platform-browser";
+import {OidcSecurityService} from "angular-auth-oidc-client";
 import {Chart} from "chart.js";
 import AnnotationPlugin from "chartjs-plugin-annotation";
 import {Icon} from "leaflet";
-import {OidcSecurityService} from "angular-auth-oidc-client";
-import {Title} from "@angular/platform-browser";
 
 import * as wisdomConfig from "../../../../wisdom.config";
 

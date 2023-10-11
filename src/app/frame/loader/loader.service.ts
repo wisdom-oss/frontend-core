@@ -1,8 +1,6 @@
 import {Injectable} from "@angular/core";
+import {LoaderInjector} from "common";
 import {Observable, Subject} from "rxjs";
-import {
-  LoaderInjector
-} from "common";
 
 /**
  * Loader service handling the communication between component and interceptor

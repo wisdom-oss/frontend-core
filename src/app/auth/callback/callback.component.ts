@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {OidcSecurityService} from "angular-auth-oidc-client";
 
 import * as wisdomConfig from "../../../../../../wisdom.config";

@@ -1,5 +1,9 @@
 import {Injectable} from "@angular/core";
-import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from "@angular/router";
+import {
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree
+} from "@angular/router";
 import {Observable} from "rxjs";
 
 import {LoaderService} from "./loader.service";

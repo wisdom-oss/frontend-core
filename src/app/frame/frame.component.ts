@@ -1,8 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 
-import * as wisdomConfig from "../../../../../wisdom.config";
 import {SettingsStorageService} from "../settings-storage.service";
+
+import * as wisdomConfig from "../../../../../wisdom.config";
 
 // TODO: add further nesting - https://bulma.io/documentation/components/menu/
 

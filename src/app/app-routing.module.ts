@@ -1,12 +1,12 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
+import {AutoLoginPartialRoutesGuard} from "angular-auth-oidc-client";
 
 import {AuthGuard} from "./auth/auth.guard";
+import {CallbackComponent} from "./auth/callback/callback.component";
 import {FrameComponent} from "./frame/frame.component";
 import {ModuleProvider} from "./module-provider";
 import {LoaderGuard} from "./frame/loader/loader.guard";
-import {CallbackComponent} from "./auth/callback/callback.component";
-import {AutoLoginPartialRoutesGuard} from "angular-auth-oidc-client";
 
 const routes: Routes = [
   {

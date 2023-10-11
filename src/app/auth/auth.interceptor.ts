@@ -4,12 +4,12 @@ import {
   HttpInterceptor,
   HttpRequest
 } from "@angular/common/http";
-import {Injectable, isDevMode, OnInit} from "@angular/core";
-import {tap, Observable, startWith, first, switchMap} from "rxjs";
-
-import {SEND_AUTH, USE_API_URL} from "common";
-import {authConfig} from "../../../../../wisdom.config";
+import {isDevMode, OnInit, Injectable} from "@angular/core";
 import {OidcSecurityService} from "angular-auth-oidc-client";
+import {SEND_AUTH, USE_API_URL} from "common";
+import {first, startWith, switchMap, tap, Observable} from "rxjs";
+
+import {authConfig} from "../../../../../wisdom.config";
 
 /** Key for the token. */
 const TOKEN_HEADER_KEY = "Authorization";
