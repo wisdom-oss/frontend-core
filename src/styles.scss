@@ -9,6 +9,9 @@ $primary: #0088aa;
 $modal-background-background-color-dark: rgba(0, 0, 0, 75%);
 $modal-card-body-background-color-dark: #242424;
 
+// Color override by Workspace
+@import "../../../wisdom.styles";
+
 // Rest of Bulma
 @import "../../../node_modules/bulma/bulma";
 @import "../../../node_modules/bulma-prefers-dark/bulma-prefers-dark";
