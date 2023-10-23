@@ -47,6 +47,67 @@ $modal-card-body-background-color-dark: #242424;
   width: 320px;
 }
 
+@media (prefers-color-scheme: dark) {
+  @import "../../../node_modules/bulma-prefers-dark/sass/elements/box";
+  @import "../../../node_modules/bulma-prefers-dark/sass/elements/form";
+
+  .datetimepicker-dummy .datetimepicker-dummy-wrapper {
+    background-color: $input-background-color-dark;
+    border-color: $input-border-color-dark;
+    color: $input-color-dark;
+
+    &:hover {
+      color: $input-hover-color-dark;
+      border-color: $input-hover-border-color-dark;
+    }
+
+    &:focus {
+      color: $input-focus-color-dark;
+      border-color: $input-focus-border-color;
+    }
+
+    &:disabled {
+      color: $input-disabled-color-dark;
+      background-color: $input-disabled-background-color-dark;
+    }
+
+    .datetimepicker-dummy-input {
+      color: $input-color-dark;
+    }
+  }
+
+  .datetimepicker {
+    background-color: $input-background-color-dark;
+    box-shadow: $box-shadow-dark;
+
+    .datetimepicker-container:after {
+      border-bottom-color: $input-background-color-dark !important;
+    }
+
+    .datetimepicker-header .datetimepicker-selection-start .datetimepicker-selection-month {
+      color: $input-color-dark;
+    }
+
+    .datepicker-body {
+      .datepicker-dates .datepicker-days .datepicker-date .date-item,
+      .datepicker-years .datepicker-year,
+      .datepicker-months .datepicker-month {
+        color: $input-color-dark;
+        border-color: $input-border-color-dark;
+
+        &:hover {
+          color: $input-color-dark;
+          background-color: $input-background-color-dark;
+        }
+      }
+
+      .datepicker-dates .datepicker-days .datepicker-date:not(.is-current-month) {
+        background-color: bulmaLighten($input-background-color-dark, 5);
+      }
+    }
+  }
+}
+
 // disable hover text on ion icons
 ion-icon {
   pointer-events: none;
