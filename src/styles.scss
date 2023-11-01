@@ -108,6 +108,19 @@ $modal-card-body-background-color-dark: #242424;
   }
 }
 
+// customize navbar of year date picker
+[data-mode="year"] .datetimepicker-wrapper .datepicker-nav {
+  button {
+    visibility: hidden;
+  }
+
+  .datepicker-nav-month-year {
+    &, .datepicker-nav-month {
+      font-size: 0;
+    }
+  }
+}
+
 // disable hover text on ion icons
 ion-icon {
   pointer-events: none;
