@@ -6,12 +6,12 @@
   </div>
 </div>
 <div class="columns is-centered is-overlay">
-  <div class="column" style="max-width: min(1920px, 100vw)">
+  <div class="column" style="max-width: min(1920px, calc(100vw + 2 * 0.75rem))">
     <nav class="navbar is-primary">
       <div class="navbar-brand">
         <a class="navbar-item pt-0 pb-0" routerLink="">
-          <div class="level is-size-2">
-            <span class="level-item pr-2">
+          <div class="level is-size-2 is-flex">
+            <span class="level-item pr-2 mb-0">
               <img
                 src="/assets/silhoutte.svg"
                 style="height: 1em; max-height: unset; filter: invert(1)"
@@ -82,7 +82,7 @@
       <aside
         *ngIf="!hideSidebar"
         class="column is-2 box p-5 menu"
-        style="margin-top: -0.75rem; overflow-y: auto"
+        style="margin-top: -0.75rem; overflow-y: auto; min-width: 14em"
       >
         <app-side-bar></app-side-bar>
       </aside>
