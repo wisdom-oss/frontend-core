@@ -18,7 +18,7 @@ import {authConfig} from "../../../../../wisdom.config";
       renewTimeBeforeTokenExpiresInSeconds: 30,
       autoUserInfo: true,
       renewUserInfoAfterTokenRenew: true,
-      scope: "openid profile email goauthentik.io/api"
+      scope: "openid profile email offline_access goauthentik.io/api"
     }, authConfig)
   }), WisdomModule, TranslateModule],
   exports: [AuthModule],
