@@ -1,6 +1,7 @@
-import {Component, OnInit, AfterViewInit} from "@angular/core";
+import {Component, OnInit, AfterViewInit, ViewChild, ElementRef} from "@angular/core";
 
 import {LoaderService} from "./loader.service";
+import { LayoutService } from "common";
 
 /**
  * Component covering the main container with a loading screen while we wait for
@@ -13,13 +14,19 @@ import {LoaderService} from "./loader.service";
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent implements OnInit, AfterViewInit {
+
+  @ViewChild("main") mainContainer?: ElementRef<HTMLDivElement>;
 
   /**
    * Constructor.
    * @param service Service to handle communication efforts
    */
-  constructor(private service: LoaderService) {}
+  constructor(
+    private service: LoaderService,
+    // this component actually owns the main container, so here we are
+    private layoutService: LayoutService
+  ) {}
 
   /** Whether the loader should be active. */
   isLoading = false;
@@ -36,5 +43,10 @@ export class LoaderComponent implements OnInit {
       // this dedupes loader texts
       values => this.displayTexts = [...new Set(values)]
     );
+  }
+
+  ngAfterViewInit(): void {
+    let mainDiv = this.mainContainer!.nativeElement;
+    this.layoutService.watch.main(mainDiv);
   }
 }
